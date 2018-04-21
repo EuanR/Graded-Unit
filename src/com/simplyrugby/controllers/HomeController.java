@@ -76,7 +76,15 @@ public class HomeController {
 
     @FXML
     private void btnViewSkillsClickHandler(javafx.event.ActionEvent event) {
-        SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "DEBUG", Integer.toString(cmbPlayers.getValue().getPlayerID())).showAndWait();
+        if (cmbPlayers.getSelectionModel().isEmpty()) {
+            SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "No player selected", "You need to select a player").showAndWait();
+            return;
+        }
+        try {
+            SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "DEBUG", Search.getPlayerFromID(cmbPlayers.getValue().getPlayerID()).toString()).showAndWait();
+        } catch (PlayerNotFoundException e) {
+            SimpleAlerts.simpleAlert(Alert.AlertType.ERROR, "Error", "There was an error fetching the data for that player. Please try again later").showAndWait();
+        }
     }
 
     public void setModal(Modal modal) {
