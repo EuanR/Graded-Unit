@@ -45,7 +45,7 @@ public class SkillDetailsController {
         TableColumn skillRatingCol = new TableColumn("Skill Rating");
         skillRatingCol.setPrefWidth(100);
         skillRatingCol.setCellValueFactory(new PropertyValueFactory<Skill, Integer>("skillRating"));
-        skillNameCol.setCellFactory(TextFieldTableCell.<Integer>forTableColumn());
+        skillRatingCol.setCellFactory(TextFieldTableCell.<Integer>forTableColumn());
         tblSkillData.getColumns().addAll(skillNameCol, skillRatingCol);
         tblSkillData.setPrefSize(250, 200);
         try {
