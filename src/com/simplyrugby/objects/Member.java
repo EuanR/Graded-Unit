@@ -110,6 +110,10 @@ public class Member {
         this.email = email;
     }
 
+    public String getFullName() {
+        return this.firstname + " " + this.surname;
+    }
+
     @Override
     public String toString() {
         return "Member{" +
