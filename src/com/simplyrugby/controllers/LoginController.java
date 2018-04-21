@@ -16,6 +16,9 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
+/**
+ * @author Euan
+ */
 public class LoginController {
     Modal modal;
 

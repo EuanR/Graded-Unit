@@ -9,6 +9,9 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/**
+ * @author Euan
+ */
 public class Modal {
 
     ArrayList<Player> players = new ArrayList<Player>();

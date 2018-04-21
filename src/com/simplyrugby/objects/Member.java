@@ -3,6 +3,9 @@ package com.simplyrugby.objects;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * @author Euan
+ */
 public class Member {
     protected int UID = -1;
     protected String firstname = "";

@@ -1,5 +1,8 @@
 package com.simplyrugby.objects;
 
+/**
+ * @author Euan
+ */
 public class Guardian {
 
     private String guardianName;

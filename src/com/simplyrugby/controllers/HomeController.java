@@ -14,6 +14,9 @@ import javafx.scene.layout.AnchorPane;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * @author Euan
+ */
 public class HomeController {
 
     @FXML

@@ -1,5 +1,8 @@
 package com.simplyrugby.objects;
 
+/**
+ * @author Euan
+ */
 public class Skill {
 
     private String skillName = "";

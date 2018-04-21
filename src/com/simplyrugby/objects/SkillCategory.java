@@ -2,6 +2,9 @@ package com.simplyrugby.objects;
 
 import java.util.ArrayList;
 
+/**
+ * @author Euan
+ */
 public class SkillCategory {
 
     protected String category = "";
