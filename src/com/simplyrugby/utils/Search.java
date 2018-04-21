@@ -12,8 +12,23 @@ import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/**
+ * @author Euan
+ */
 public class Search {
 
+    /**
+     * Returns a Player object from a given player ID
+     * <pre>
+     *     {@code
+     *      Player tempPlayer = Search.getPlayerFromID(102);
+     *     }
+     * </pre>
+     *
+     * @param playerID The ID of the player
+     * @return An instance of the Player object from the ID
+     * @throws PlayerNotFoundException Throws if there is no player matching the given ID, or if the player is not found
+     */
     public static Player getPlayerFromID(int playerID) throws PlayerNotFoundException {
         ArrayList<Player> tempPlayers = new ArrayList<>();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();

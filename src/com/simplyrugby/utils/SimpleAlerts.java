@@ -9,8 +9,24 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 
+/**
+ * @author Euan Riggans
+ */
 public final class SimpleAlerts {
 
+    /**
+     * Creates a JFoenix alert
+     * <pre>
+     *     {@code
+     *      SimpleAlerts.simpleJFXAlert(new JFXAlert((Stage) pane.getScene().getWindow()), "Error", "A player with that ID does not exist!");
+     *     }
+     * </pre>
+     *
+     * @param alert      An instance of the JFonix alert type
+     * @param alertTitle The title of the alert
+     * @param alertText  The text body for the alert
+     * @return Returns an instance of the JFoenix alert ready to be shown
+     */
     public static JFXAlert simpleJFXAlert(JFXAlert alert, String alertTitle, String alertText) {
         ScrollPane scroll = new ScrollPane();
         scroll.setMaxHeight(250);
@@ -31,6 +47,18 @@ public final class SimpleAlerts {
         return alert;
     }
 
+    /**
+     * Creates a javafx alert
+     * <pre>
+     *     {@code
+     *      SimpleAlerts.simpleAlert(Alert.AlertType.ERROR, "Player not found", "A player with that ID does not exist").showAndWait();
+     *     }
+     * </pre>
+     * @param alertType     The type of alert
+     * @param alertTitle    Title of the alert
+     * @param alertText     Text body of the alert
+     * @return Returns an instance of a javafx alert ready to be shown
+     */
     public static Alert simpleAlert(Alert.AlertType alertType, String alertTitle, String alertText) {
         Alert alert = new Alert(alertType);
         alert.setTitle(alertTitle);
