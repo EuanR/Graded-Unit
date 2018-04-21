@@ -8,11 +8,11 @@ public class ComboBoxItem {
     /**
      * The text which will be displayed in the combo box
      */
-    private String itemText = null;
+    private String itemText;
     /**
      * The 'hidden' value. Tends to be the players ID
      */
-    private int playerID = 0;
+    private int playerID;
 
     /**
      * Constructor
