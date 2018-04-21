@@ -10,7 +10,6 @@ import com.simplyrugby.utils.SimpleAlerts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -105,11 +104,10 @@ public class HomeController {
             stage.setTitle("Skills Menu -" + cmbPlayers.getValue().getItemText());
             stage.setScene(new Scene(root));
             stage.setResizable(false);
-            stage.show();
+            stage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
     public void setModal(Modal modal) {
