@@ -14,9 +14,9 @@ import java.util.ArrayList;
  */
 public class Modal {
 
-    ArrayList<Player> players = new ArrayList<Player>();
-    ArrayList<Squad> squads = new ArrayList<Squad>();
-    Member coach;
+    private ArrayList<Player> players = new ArrayList<Player>();
+    private ArrayList<Squad> squads = new ArrayList<Squad>();
+    private Member coach;
 
     public Modal() {
         if (checkForSystemData()) {
