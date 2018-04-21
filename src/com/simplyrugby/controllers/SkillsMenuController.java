@@ -5,10 +5,12 @@ import com.simplyrugby.modals.Modal;
 import com.simplyrugby.objects.ComboBoxItem;
 import com.simplyrugby.objects.SkillCategory;
 import com.simplyrugby.utils.Search;
+import com.simplyrugby.utils.SimpleAlerts;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Modality;
@@ -49,6 +51,10 @@ public class SkillsMenuController {
 
     @FXML
     private void btnViewDetailsClickHandler(javafx.event.ActionEvent event) {
+        if (cmbSkillCategories.getSelectionModel().isEmpty()) {
+            SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "No skill category selected", "You need to select a skill category").showAndWait();
+            return;
+        }
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/SkillDetails.fxml"));
             Parent root = null;
