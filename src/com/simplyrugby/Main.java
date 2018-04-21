@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 /**
  * @author Euan
+ * Project docs can be found at https://docs.gradedunit.euanriggans.com
  */
 public class Main extends Application {
 
