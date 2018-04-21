@@ -21,6 +21,10 @@ public class Skill {
         this.skillRating = skillRating;
     }
 
+    public String getSkillName() {
+        return skillName;
+    }
+
     @Override
     public String toString() {
         return "Skill{" +
