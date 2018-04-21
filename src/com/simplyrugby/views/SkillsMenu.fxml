@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.simplyrugby.controllers.SkillsMenuController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="52.0" prefWidth="337.0" xmlns="http://javafx.com/javafx/9.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.simplyrugby.controllers.SkillsMenuController">
+   <children>
+      <Button fx:id="btnViewDetails" layoutX="248.0" layoutY="14.0" mnemonicParsing="false"
+              onAction="#btnViewDetailsClickHandler" text="View Details"/>
+      <ComboBox fx:id="cmbSkillCategories" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="225.0"
+                promptText="Skill categories"/>
+   </children>
 </AnchorPane>
