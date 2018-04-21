@@ -9,9 +9,17 @@ import com.simplyrugby.utils.Search;
 import com.simplyrugby.utils.SimpleAlerts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -85,6 +93,23 @@ public class HomeController {
         } catch (PlayerNotFoundException e) {
             SimpleAlerts.simpleAlert(Alert.AlertType.ERROR, "Error", "There was an error fetching the data for that player. Please try again later").showAndWait();
         }
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/SkillsMenu.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            SkillsMenuController controller = fxmlLoader.getController();
+            controller.setModal(this.modal);
+            controller.init(cmbPlayers.getValue().getPlayerID());
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.DECORATED);
+            stage.setTitle("Skills Menu -" + cmbPlayers.getValue().getItemText());
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
     public void setModal(Modal modal) {
