@@ -1,5 +1,6 @@
 package com.simplyrugby.controllers;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import com.simplyrugby.modals.Modal;
 import com.simplyrugby.objects.Player;
 import com.simplyrugby.objects.Skill;
@@ -18,11 +19,11 @@ import java.util.Optional;
 public class HomeController {
 
     @FXML
-    private TableColumn playerName;
+    private ComboBox cmbPlayers;
     @FXML
-    private TableColumn playerID;
+    private Button btnViewSkills;
     @FXML
-    private TableView squadPlayers;
+    private Label lblSelectPlayerFixed;
 
     Modal modal;
 
@@ -53,42 +54,11 @@ public class HomeController {
                 squadName = tempSquadName.get();
             }
         }
-        int columnIndex = 2;
-        try {
-            for (SkillCategory skill : modal.getPlayerFromID(modal.getSquads().get(currentSquadIndex).getPlayers().get(0)).getSkills()) {
-                TableColumn<List<String>, String> col = new TableColumn<>(skill.getCategory());
-                col.setMinWidth(80);
-                squadPlayers.getColumns().add(col);
-                columnIndex++;
+        for(Squad squad : modal.getSquads()) {
+            if(squad.getSquadName().toLowerCase().equals(squadName.toLowerCase())) {
+                cmbPlayers.getItems().addAll(squad.getPlayers());
+                break;
             }
-        } catch (IndexOutOfBoundsException e) {
-            Debug.log("There are no players in that squad.");
-            System.exit(0);
-
-        } catch (Exception e) {
-            Debug.log("Unexpected error occurred when creating columns");
-            System.exit(0);
-        }
-
-        try {
-            for(Integer playerID : modal.getSquads().get(currentSquadIndex).getPlayers()) {
-                Player currentPlayer = modal.getPlayerFromID(playerID);
-                ArrayList<String> values = new ArrayList<String>();
-                values.add(Integer.toString(currentPlayer.getUID()));
-                values.add(currentPlayer.getFirstname() + " " + currentPlayer.getSurname());
-                for(SkillCategory skillCategory : currentPlayer.getSkills()) {
-                    for(Skill skill : skillCategory.getSkills()) {
-                        values.add(Integer.toString(skill.getSkillRating()));
-                    }
-                }
-                squadPlayers.getItems().addAll(values);
-            }
-        } catch (IndexOutOfBoundsException e) {
-            Debug.log("An unexpected error has occurred when populating table data: IndexOutOfBounds");
-            System.exit(0);
-        } catch (Exception e) {
-            Debug.log("Unexpected error occurred when populating table data");
-            System.exit(0);
         }
     }
 

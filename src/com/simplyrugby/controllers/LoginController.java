@@ -43,6 +43,7 @@ public class LoginController {
                 stage.initStyle(StageStyle.DECORATED);
                 stage.setTitle("Simply Rugby Coaching Home");
                 stage.setScene(new Scene(root));
+                stage.setResizable(false);
                 stage.show();
             } catch(IOException e) {
                 e.printStackTrace();

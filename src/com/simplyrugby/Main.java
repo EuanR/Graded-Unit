@@ -1,12 +1,12 @@
 package com.simplyrugby;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import com.simplyrugby.controllers.LoginController;
-import com.simplyrugby.modals.Modal;
+        import javafx.application.Application;
+        import javafx.fxml.FXMLLoader;
+        import javafx.scene.Parent;
+        import javafx.scene.Scene;
+        import javafx.stage.Stage;
+        import com.simplyrugby.controllers.LoginController;
+        import com.simplyrugby.modals.Modal;
 
 public class Main extends Application {
 
@@ -20,6 +20,7 @@ public class Main extends Application {
         Stage stage = new Stage();
         primaryStage.setTitle("Simply Rugby Login");
         primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
