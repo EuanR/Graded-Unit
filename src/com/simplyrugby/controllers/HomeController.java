@@ -2,6 +2,7 @@ package com.simplyrugby.controllers;
 
 import com.simplyrugby.exceptions.PlayerNotFoundException;
 import com.simplyrugby.modals.Modal;
+import com.simplyrugby.objects.ComboBoxItem;
 import com.simplyrugby.objects.Player;
 import com.simplyrugby.objects.Squad;
 import com.simplyrugby.utils.Search;
@@ -22,7 +23,7 @@ public class HomeController {
     @FXML
     private AnchorPane pane;
     @FXML
-    private ComboBox cmbPlayers;
+    private ComboBox<ComboBoxItem> cmbPlayers;
     @FXML
     private Button btnViewSkills;
     @FXML
@@ -61,8 +62,9 @@ public class HomeController {
             if (squad.getSquadName().toLowerCase().equals(squadName.toLowerCase())) {
                 for (int playerID : squad.getPlayers()) {
                     try {
-                        Player tempPlayer = Search.getPlayerFromID(playerID + 10);
-                        cmbPlayers.getItems().add(tempPlayer.getFullName());
+                        Player tempPlayer = Search.getPlayerFromID(playerID);
+                        ComboBoxItem comboBoxItem = new ComboBoxItem(tempPlayer.getFullName(), tempPlayer.getUID());
+                        cmbPlayers.getItems().add(comboBoxItem);
                     } catch (PlayerNotFoundException e) {
                         SimpleAlerts.simpleAlert(Alert.AlertType.ERROR, "Player not found", "A player with that ID does not exist").showAndWait();
                     }
@@ -72,11 +74,16 @@ public class HomeController {
         }
     }
 
+    @FXML
+    private void btnViewSkillsClickHandler(javafx.event.ActionEvent event) {
+        SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "DEBUG", Integer.toString(cmbPlayers.getValue().getPlayerID())).showAndWait();
+    }
+
     public void setModal(Modal modal) {
         this.modal = modal;
     }
 
-    public boolean squadExists(String squadName) {
+    private boolean squadExists(String squadName) {
         int index = 0;
         ArrayList<Squad> squads = modal.getSquads();
         for (Squad squad : squads) {
