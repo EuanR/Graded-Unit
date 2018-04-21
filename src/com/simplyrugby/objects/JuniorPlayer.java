@@ -1,4 +1,5 @@
 package com.simplyrugby.objects;
+
 import java.util.ArrayList;
 
 public class JuniorPlayer extends Player {
@@ -12,16 +13,16 @@ public class JuniorPlayer extends Player {
         this.doctorsAddress = doctorsAddress;
         this.parentalConsentFormSigned = parentalConsentFormSigned;
         guardianData.add(new Guardian(
-            guardianOneName,
-            guardianOneRelationship,
-            guardianOneAddress,
-            guardianOneTelephone
+                guardianOneName,
+                guardianOneRelationship,
+                guardianOneAddress,
+                guardianOneTelephone
         ));
         guardianData.add(new Guardian(
-            guardianTwoName,
-            guardianTwoRelationship,
-            guardianTwoAddress,
-            guardianTwoTelephone
+                guardianTwoName,
+                guardianTwoRelationship,
+                guardianTwoAddress,
+                guardianTwoTelephone
         ));
     }
 

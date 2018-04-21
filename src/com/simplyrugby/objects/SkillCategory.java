@@ -14,8 +14,8 @@ public class SkillCategory {
 
     public void addSkill(String skillName, int skillRating) {
         skills.add(new Skill(
-           skillName,
-           skillRating
+                skillName,
+                skillRating
         ));
     }
 

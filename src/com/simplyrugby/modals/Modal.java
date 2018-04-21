@@ -16,7 +16,7 @@ public class Modal {
     Member coach;
 
     public Modal() {
-        if(checkForSystemData()) {
+        if (checkForSystemData()) {
             importSystemData();
         } else {
             rebuildSystemData();
@@ -158,23 +158,23 @@ public class Modal {
                 "32 Guild Street",
                 true
         ));
-         coach = new Member(
+        coach = new Member(
                 6,
-                 "Harlod",
-                 "Anderson",
-                 "42 Fake Street",
-                 "PYT 0123",
-                 "0912213344",
-                 "01/02/1990",
-                 "01234 412 124",
-                 "081212341",
-                 "harold@emalprovider.com"
-         );
+                "Harlod",
+                "Anderson",
+                "42 Fake Street",
+                "PYT 0123",
+                "0912213344",
+                "01/02/1990",
+                "01234 412 124",
+                "081212341",
+                "harold@emalprovider.com"
+        );
         squads.add(new Squad(
-            "Senior Team"
+                "Senior Team"
         ));
         squads.add(new Squad(
-           "Junior Team"
+                "Junior Team"
         ));
         squads.get(0).addPlayer(players.get(0).getUID());
         squads.get(0).addPlayer(players.get(1).getUID());
@@ -182,7 +182,7 @@ public class Modal {
         squads.get(1).addPlayer(players.get(3).getUID());
         squads.get(1).addPlayer(players.get(4).getUID());
         squads.get(1).addPlayer(players.get(5).getUID());
-        for(Player player : players) {
+        for (Player player : players) {
             player.addSkillCategory("Passing");
             player.addSkillToCategory("Passing", "Standard", 0);
             player.addSkillToCategory("Passing", "Spin", 0);
@@ -205,7 +205,8 @@ public class Modal {
 
     public void importSystemData() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        Type playerType = new TypeToken<ArrayList<Player>>(){}.getType();
+        Type playerType = new TypeToken<ArrayList<Player>>() {
+        }.getType();
         try {
             Reader reader = new FileReader("data/players.json");
             //players = gson.fromJson(reader, new TypeToken<ArrayList<Player>>(){}.getType());
@@ -215,7 +216,8 @@ public class Modal {
         }
         try {
             Reader reader = new FileReader("data/squads.json");
-            squads = gson.fromJson(reader, new TypeToken<ArrayList<Squad>>(){}.getType());
+            squads = gson.fromJson(reader, new TypeToken<ArrayList<Squad>>() {
+            }.getType());
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
@@ -231,21 +233,21 @@ public class Modal {
         String json = "";
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        try(Writer writer = new FileWriter("data/players.json")) {
+        try (Writer writer = new FileWriter("data/players.json")) {
             gson.toJson(players, writer);
         } catch (IOException e) {
             System.out.println("Error writing json to file");
             e.printStackTrace();
         }
 
-        try(Writer writer = new FileWriter("data/squads.json")) {
+        try (Writer writer = new FileWriter("data/squads.json")) {
             gson.toJson(squads, writer);
         } catch (IOException e) {
             System.out.println("Error writing json to file");
             e.printStackTrace();
         }
 
-        try(Writer writer = new FileWriter("data/coach.json")) {
+        try (Writer writer = new FileWriter("data/coach.json")) {
             gson.toJson(coach, writer);
         } catch (IOException e) {
             System.out.println("Error writing json to file");
@@ -257,7 +259,7 @@ public class Modal {
         File playersData = new File("data/players.json");
         File squadsData = new File("data/squads.json");
         File coachData = new File("data/coach.json");
-        if(playersData.exists() && squadsData.exists() && coachData.exists()) {
+        if (playersData.exists() && squadsData.exists() && coachData.exists()) {
             return true;
         } else {
             return false;
@@ -268,18 +270,20 @@ public class Modal {
         return players;
     }
 
-    public ArrayList<Squad> getSquads() { return squads; }
+    public ArrayList<Squad> getSquads() {
+        return squads;
+    }
 
     public Member getCoach() {
         return coach;
     }
 
     public void outputAllData() {
-        for(Player player : players) {
+        for (Player player : players) {
             System.out.println(player.toString());
         }
 
-        for(Squad squad : squads) {
+        for (Squad squad : squads) {
             System.out.println(squad.toString());
         }
 
@@ -288,8 +292,8 @@ public class Modal {
 
     public Player getPlayerFromID(int ID) {
         boolean found = false;
-        for(Player player : players) {
-            if(player.getUID() == ID) {
+        for (Player player : players) {
+            if (player.getUID() == ID) {
                 found = true;
                 return player;
             }

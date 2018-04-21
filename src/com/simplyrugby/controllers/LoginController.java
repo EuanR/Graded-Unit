@@ -1,5 +1,6 @@
 package com.simplyrugby.controllers;
 
+import com.simplyrugby.modals.Modal;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,7 +13,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import com.simplyrugby.modals.Modal;
 
 import java.io.IOException;
 
@@ -31,8 +31,8 @@ public class LoginController {
 
     @FXML
     private void btnLoginClickHandler(javafx.event.ActionEvent event) {
-        if(validateLogin(txtUserID.getText())) {
-            try{
+        if (validateLogin(txtUserID.getText())) {
+            try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/Home.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 HomeController controller = fxmlLoader.getController();
@@ -45,10 +45,10 @@ public class LoginController {
                 stage.setScene(new Scene(root));
                 stage.setResizable(false);
                 stage.show();
-            } catch(IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
-            ((Node)(event.getSource())).getScene().getWindow().hide();
+            ((Node) (event.getSource())).getScene().getWindow().hide();
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Invalid login credentials", ButtonType.OK);
             alert.initStyle(StageStyle.DECORATED);
@@ -65,7 +65,7 @@ public class LoginController {
             alert.showAndWait();
             return false;
         }
-        if(modal.getCoach().getUID() == ID) {
+        if (modal.getCoach().getUID() == ID) {
             return true;
         } else {
             return false;

@@ -1,4 +1,5 @@
 package com.simplyrugby.objects;
+
 import java.util.ArrayList;
 
 public class Player extends Member {
@@ -8,6 +9,7 @@ public class Player extends Member {
     String position = "";
     ArrayList<SkillCategory> skills = new ArrayList<SkillCategory>();
     ArrayList<String> healthIssues = new ArrayList<String>();
+
     public Player(int UID, String firstname, String surname, String address, String postcode, String SRUNumber, String dateOfBirth, String telephoneNumber, String mobileNumber, String email, String doctor, String doctorTelephone, String position, ArrayList<String> healthIssues) {
         super(UID, firstname, surname, address, postcode, SRUNumber, dateOfBirth, telephoneNumber, mobileNumber, email);
         this.doctor = doctor;
@@ -18,7 +20,7 @@ public class Player extends Member {
 
     public void addSkillCategory(String category) {
         skills.add(new SkillCategory(
-           category
+                category
         ));
     }
 
@@ -28,14 +30,14 @@ public class Player extends Member {
 
     public boolean addSkillToCategory(String category, String skill, int rating) {
         boolean found = false;
-        for(SkillCategory skillsList : skills) {
-            if(skillsList.getCategory().toLowerCase().equals(category.toLowerCase())) {
+        for (SkillCategory skillsList : skills) {
+            if (skillsList.getCategory().toLowerCase().equals(category.toLowerCase())) {
                 found = true;
                 skillsList.addSkill(skill, rating);
             }
         }
-        if(found) {
-           return true;
+        if (found) {
+            return true;
         } else {
             return false;
         }
