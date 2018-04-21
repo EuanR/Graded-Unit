@@ -5,30 +5,48 @@ package com.simplyrugby.objects;
  */
 public class ComboBoxItem {
 
+    /**
+     * The text which will be displayed in the combo box
+     */
     private String itemText = null;
-    private int itemID = 0;
+    /**
+     * The 'hidden' value. Tends to be the players ID
+     */
+    private int playerID = 0;
 
+    /**
+     * Constructor
+     *
+     * @param itemText The text to be displayed in the combo box
+     * @param itemID   The hidden id
+     */
     public ComboBoxItem(String itemText, int itemID) {
         this.itemText = itemText;
-        this.itemID = itemID;
+        this.playerID = itemID;
     }
 
+    /**
+     * Item text getter
+     *
+     * @return Returns the current item text
+     */
     public String getItemText() {
         return itemText;
     }
 
-    public void setItemText(String itemText) {
-        this.itemText = itemText;
+    /**
+     * Player ID getter
+     *
+     * @return Returns the current player ID
+     */
+    public int getPlayerID() {
+        return playerID;
     }
 
-    public int getItemID() {
-        return itemID;
-    }
-
-    public void setItemID(int itemID) {
-        this.itemID = itemID;
-    }
-
+    /**
+     * Used by combo box to display text to the user
+     * @return Returns the item text
+     */
     @Override
     public String toString() {
         return itemText;
