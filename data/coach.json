@@ -1,0 +1,16 @@
+{
+  "UID": 6,
+  "firstname": "Harlod",
+  "surname": "Anderson",
+  "address": "42 Fake Street",
+  "postcode": "PYT 0123",
+  "SRUNumber": "0912213344",
+  "dateOfBirth": {
+    "year": 1990,
+    "month": 2,
+    "day": 1
+  },
+  "telephoneNumber": "01234 412 124",
+  "mobileNumber": "081212341",
+  "email": "harold@emalprovider.com"
+}

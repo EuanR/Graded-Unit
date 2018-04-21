@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.simplyrugby.controllers.HomeController">
+   <children>
+      <TableView layoutX="11.0" layoutY="11.0" prefHeight="379.0" prefWidth="578.0" fx:id="squadPlayers">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Player ID" fx:id="playerID" />
+          <TableColumn prefWidth="75.0" text="Player Name"  fx:id="playerName" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
