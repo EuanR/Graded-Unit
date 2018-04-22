@@ -63,7 +63,7 @@ public class Search {
      * @return Returns the SkillCategory object for the specified parameters
      * @throws SkillCategoryNotFoundException Throws if the SkillCategory is not found in the players skills
      */
-    public static SkillCategory getSkillCateogryFromName(String skillCategoryName, int playerID) throws SkillCategoryNotFoundException {
+    public static SkillCategory getSkillCategoryFromName(String skillCategoryName, int playerID) throws SkillCategoryNotFoundException {
         ArrayList<Player> tempPlayers = new ArrayList<>();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         boolean found = false;
