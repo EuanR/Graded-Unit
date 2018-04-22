@@ -201,7 +201,6 @@ public class Modal {
             player.addSkillToCategory("Kicking", "Grubber", "0");
             player.addSkillToCategory("Kicking", "Goal", "0");
             player.getSkills().get(0).addNotes("Good at passing");
-            player.getSkills().get(0).addSkill("Standard", "0");
         }
         exportSystemData();
     }
