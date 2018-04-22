@@ -2,12 +2,14 @@ package com.simplyrugby.controllers;
 
 import com.simplyrugby.exceptions.SkillCategoryNotFoundException;
 import com.simplyrugby.modals.Modal;
+import com.simplyrugby.objects.Player;
 import com.simplyrugby.objects.Skill;
+import com.simplyrugby.objects.SkillCategory;
 import com.simplyrugby.utils.Search;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -26,8 +28,6 @@ public class SkillDetailsController {
     @FXML
     private TableView tblSkillData;
     @FXML
-    private Button btnSaveDetails;
-    @FXML
     private AnchorPane pane;
 
     public void setModal(Modal modal) {
@@ -42,15 +42,29 @@ public class SkillDetailsController {
         skillNameCol.setPrefWidth(100);
         skillNameCol.setCellValueFactory(new PropertyValueFactory<Skill, String>("skillName"));
         skillNameCol.setCellFactory(TextFieldTableCell.<String>forTableColumn());
+        skillNameCol.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent cellEditEvent) {
+                updateSkillName(cellEditEvent.getOldValue().toString(), cellEditEvent.getNewValue().toString());
+                modal.exportSystemData();
+            }
+        });
         TableColumn skillRatingCol = new TableColumn("Skill Rating");
         skillRatingCol.setPrefWidth(100);
-        skillRatingCol.setCellValueFactory(new PropertyValueFactory<Skill, Integer>("skillRating"));
-        skillRatingCol.setCellFactory(TextFieldTableCell.<Integer>forTableColumn());
+        skillRatingCol.setCellValueFactory(new PropertyValueFactory<Skill, String>("skillRating"));
+        skillRatingCol.setCellFactory(TextFieldTableCell.<String>forTableColumn());
+        skillRatingCol.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent cellEditEvent) {
+                Skill tempSkill = (Skill) cellEditEvent.getTableView().getItems().get(cellEditEvent.getTablePosition().getRow());
+                updateSkillRating(tempSkill.getSkillName(), cellEditEvent.getOldValue().toString(), cellEditEvent.getNewValue().toString());
+                modal.exportSystemData();
+            }
+        });
         tblSkillData.getColumns().addAll(skillNameCol, skillRatingCol);
-        tblSkillData.setPrefSize(250, 200);
         try {
             ObservableList<Skill> dataToAdd = FXCollections.observableArrayList();
-            for (Skill skill : Search.getSkillCateogryFromName(skillCategoryName, playerID).getSkills()) {
+            for (Skill skill : Search.getSkillCategoryFromName(skillCategoryName, playerID).getSkills()) {
                 dataToAdd.add(skill);
             }
             tblSkillData.setItems(dataToAdd);
@@ -59,9 +73,32 @@ public class SkillDetailsController {
         }
     }
 
-    @FXML
-    private void btnSaveDetailsClickHandlder(javafx.event.ActionEvent event) {
+    private void updateSkillName(String currentSkillName, String newSkillName) {
+        for (Player player : modal.getPlayers()) {
+            if (player.getUID() == playerID) {
+                for (SkillCategory skillCategory : player.getSkills()) {
+                    for (Skill skill : skillCategory.getSkills()) {
+                        if (skill.getSkillName().equals(currentSkillName)) {
+                            skill.setSkillName(newSkillName);
+                        }
+                    }
+                }
+            }
+        }
+    }
 
+    private void updateSkillRating(String skillName, String currentSkillRating, String newSkillRating) {
+        for (Player player : modal.getPlayers()) {
+            if (player.getUID() == playerID) {
+                for (SkillCategory skillCategory : player.getSkills()) {
+                    for (Skill skill : skillCategory.getSkills()) {
+                        if (skill.getSkillName().equals(skillName) && skill.getSkillRating().equals(currentSkillRating)) {
+                            skill.setSkillRating(newSkillRating);
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }
