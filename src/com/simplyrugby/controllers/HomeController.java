@@ -96,7 +96,7 @@ public class HomeController {
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initStyle(StageStyle.DECORATED);
-            stage.setTitle("Skills Menu -" + cmbPlayers.getValue().getItemText());
+            stage.setTitle("Skills Menu - " + cmbPlayers.getValue().getItemText());
             stage.setScene(new Scene(root));
             stage.setResizable(false);
             stage.showAndWait();
