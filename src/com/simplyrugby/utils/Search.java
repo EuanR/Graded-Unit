@@ -27,9 +27,8 @@ public class Search {
      *     }
      * </pre>
      *
-     * @param playerID      The ID of the player
+     * @param playerID The ID of the player
      * @return An instance of the Player object from the ID
-     *
      * @throws PlayerNotFoundException Throws if there is no player matching the given ID, or if the player is not found
      */
     public static Player getPlayerFromID(int playerID) throws PlayerNotFoundException {
@@ -59,10 +58,9 @@ public class Search {
     /**
      * Returns a SkillCategory object specified in the parameters
      *
-     * @param skillCategoryName     The name of the skill category
-     * @param playerID              The id of the player who has the category
+     * @param skillCategoryName The name of the skill category
+     * @param playerID          The id of the player who has the category
      * @return Returns the SkillCategory object for the specified parameters
-     *
      * @throws SkillCategoryNotFoundException Throws if the SkillCategory is not found in the players skills
      */
     public static SkillCategory getSkillCategoryFromName(String skillCategoryName, int playerID) throws SkillCategoryNotFoundException {

@@ -15,9 +15,9 @@ public final class SimpleAlerts {
      *     }
      * </pre>
      *
-     * @param alertType     The type of alert
-     * @param alertTitle    Title of the alert
-     * @param alertText     Text body of the alert
+     * @param alertType  The type of alert
+     * @param alertTitle Title of the alert
+     * @param alertText  Text body of the alert
      * @return Returns an instance of a javafx alert ready to be shown
      */
     public static Alert simpleAlert(Alert.AlertType alertType, String alertTitle, String alertText) {
