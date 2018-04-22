@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Squad {
 
-    private String squadName = "";
+    private String squadName;
     private ArrayList<Integer> playerIDs = new ArrayList<Integer>();
     private int coachID;
 
@@ -31,6 +31,14 @@ public class Squad {
 
     public ArrayList<Integer> getPlayers() {
         return playerIDs;
+    }
+
+    public int getCoachID() {
+        return coachID;
+    }
+
+    public void setCoachID(int coachID) {
+        this.coachID = coachID;
     }
 
     @Override
