@@ -13,23 +13,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
 /**
  * @author Euan
- * @// TODO: 22/04/2018 Set stage title to contain the current squad name, simimlar to how SkillDetails and SkillsMenu are displayed
  */
 public class HomeController {
 
     Modal modal;
-    int currentSquadIndex = 0;
+    private String currentSquadName;
     @FXML
     private AnchorPane pane;
     @FXML
@@ -78,6 +79,7 @@ public class HomeController {
         } else {
             squadName = squadsCoaching.get(0);
         }
+        currentSquadName = squadName;
         for (Squad squad : modal.getSquads()) {
             if (squad.getSquadName().toLowerCase().equals(squadName.toLowerCase())) {
                 for (int playerID : squad.getPlayers()) {
@@ -93,6 +95,11 @@ public class HomeController {
             }
         }
         return true;
+    }
+
+    public void updateSceneTitle() {
+        Stage tempStage = (Stage) pane.getScene().getWindow();
+        tempStage.setTitle("Simply Rugby Coaching Home - " + currentSquadName);
     }
 
     @FXML
@@ -113,6 +120,9 @@ public class HomeController {
             stage.setTitle("Skills Menu - " + cmbPlayers.getValue().getItemText());
             stage.setScene(new Scene(root));
             stage.setResizable(false);
+            File tempIconLocation = new File("resources/sru_logo.png");
+            Image icon = new Image("file:\\" + tempIconLocation.getCanonicalPath());
+            stage.getIcons().add(icon);
             stage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
@@ -125,6 +135,7 @@ public class HomeController {
 
     private boolean squadExists(String squadName) {
         int index = 0;
+        int currentSquadIndex = 0;
         ArrayList<Squad> squads = modal.getSquads();
         for (Squad squad : squads) {
             if (squad.getSquadName().toLowerCase().equals(squadName.toLowerCase())) {

@@ -6,7 +6,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 /**
  * @author Euan
@@ -25,10 +28,12 @@ public class Main extends Application {
         LoginController controller = fxmlLoader.getController();
         Modal modal = new Modal();
         controller.setModal(modal);
-        Stage stage = new Stage();
         primaryStage.setTitle("Simply Rugby Login");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.setResizable(false);
+        File tempIconLocation = new File("resources/sru_logo.png");
+        Image icon = new Image("file:\\" + tempIconLocation.getCanonicalPath());
+        primaryStage.getIcons().add(icon);
         primaryStage.show();
     }
 }

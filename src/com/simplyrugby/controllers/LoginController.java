@@ -13,10 +13,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -52,7 +54,11 @@ public class LoginController {
                 stage.setTitle("Simply Rugby Coaching Home");
                 stage.setScene(new Scene(root));
                 stage.setResizable(false);
+                File tempIconLocation = new File("resources/sru_logo.png");
+                Image icon = new Image("file:\\" + tempIconLocation.getCanonicalPath());
+                stage.getIcons().add(icon);
                 stage.show();
+                controller.updateSceneTitle();
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -12,10 +12,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -71,6 +73,9 @@ public class SkillsMenuController {
             stage.setTitle("Skills Details - " + cmbSkillCategories.getValue().getItemText());
             stage.setScene(new Scene(root));
             stage.setResizable(false);
+            File tempIconLocation = new File("resources/sru_logo.png");
+            Image icon = new Image("file:\\" + tempIconLocation.getCanonicalPath());
+            stage.getIcons().add(icon);
             stage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
