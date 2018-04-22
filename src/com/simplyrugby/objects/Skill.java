@@ -21,6 +21,10 @@ public class Skill {
         this.skillRating = skillRating;
     }
 
+    public void setSkillName(String skillName) {
+        this.skillName = skillName;
+    }
+
     public String getSkillName() {
         return skillName;
     }
