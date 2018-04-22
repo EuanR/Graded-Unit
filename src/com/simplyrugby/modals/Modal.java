@@ -265,21 +265,18 @@ public class Modal {
             gson.toJson(players, writer);
         } catch (IOException e) {
             System.out.println("Error writing json to file");
-            e.printStackTrace();
         }
 
         try (Writer writer = new FileWriter("data/squads.json")) {
             gson.toJson(squads, writer);
         } catch (IOException e) {
             System.out.println("Error writing json to file");
-            e.printStackTrace();
         }
 
         try (Writer writer = new FileWriter("data/coaches.json")) {
             gson.toJson(coaches, writer);
         } catch (IOException e) {
             System.out.println("Error writing json to file");
-            e.printStackTrace();
         }
     }
 
