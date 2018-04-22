@@ -4,14 +4,14 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="pane" prefHeight="77.0" prefWidth="361.0"
-            xmlns="http://javafx.com/javafx/9.0.1" fx:controller="com.simplyrugby.controllers.HomeController">
+<AnchorPane fx:id="pane" prefHeight="77.0" prefWidth="361.0" xmlns="http://javafx.com/javafx/9.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.simplyrugby.controllers.HomeController">
     <children>
         <Label fx:id="lblSelectPlayerFixed" layoutX="14.0" layoutY="14.0"
                text="Please select a player from this squad:"/>
         <ComboBox fx:id="cmbPlayers" layoutX="14.0" layoutY="38.0" prefHeight="25.0" prefWidth="201.0"
                   promptText="Squad players"/>
-        <Button fx:id="btnViewSkills" layoutX="223.0" layoutY="38.0" mnemonicParsing="false"
+        <Button fx:id="btnViewSkills" defaultButton="true" layoutX="223.0" layoutY="38.0" mnemonicParsing="false"
                 onAction="#btnViewSkillsClickHandler" text="View Player Skill Data"/>
     </children>
 </AnchorPane>
