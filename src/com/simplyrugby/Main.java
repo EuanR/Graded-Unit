@@ -21,6 +21,12 @@ public class Main extends Application {
         launch(args);
     }
 
+    /**
+     * Creates the Login view
+     *
+     * @param primaryStage Stage for Login view
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("views/Login.fxml"));
