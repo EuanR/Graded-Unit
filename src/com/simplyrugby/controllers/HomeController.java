@@ -49,7 +49,7 @@ public class HomeController {
         cancel.addEventFilter(ActionEvent.ACTION, event ->
                 System.exit(0)
         );
-        getSquad.setResizable(true);
+        getSquad.setResizable(false);
         getSquad.setHeaderText("Please enter the name of the squad you wish to manage");
         getSquad.setTitle("Please enter the name of the squad you wish to manage");
         tempSquadName = getSquad.showAndWait();
