@@ -25,7 +25,7 @@ public class Main extends Application {
      * Creates the Login view
      *
      * @param primaryStage Stage for Login view
-     * @throws Exception
+     * @throws Exception Throws exception if any occur
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
