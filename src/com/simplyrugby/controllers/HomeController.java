@@ -88,11 +88,6 @@ public class HomeController {
             return;
         }
         try {
-            SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "DEBUG", Search.getPlayerFromID(cmbPlayers.getValue().getPlayerID()).toString()).showAndWait();
-        } catch (PlayerNotFoundException e) {
-            SimpleAlerts.simpleAlert(Alert.AlertType.ERROR, "Error", "There was an error fetching the data for that player. Please try again later").showAndWait();
-        }
-        try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/SkillsMenu.fxml"));
             Parent root = (Parent) fxmlLoader.load();
             SkillsMenuController controller = fxmlLoader.getController();
