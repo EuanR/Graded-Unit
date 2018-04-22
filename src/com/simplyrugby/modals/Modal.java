@@ -14,9 +14,9 @@ import java.util.ArrayList;
  */
 public class Modal {
 
-    private ArrayList<Player> players = new ArrayList<Player>();
-    private ArrayList<Squad> squads = new ArrayList<Squad>();
-    private Member coach;
+    private ArrayList<Player> players = new ArrayList<>();
+    private ArrayList<Squad> squads = new ArrayList<>();
+    private ArrayList<Member> coaches = new ArrayList<>();
 
     public Modal() {
         if (checkForSystemData()) {
@@ -167,7 +167,7 @@ public class Modal {
                 "32 Guild Street",
                 true
         ));
-        coach = new Member(
+        coaches.add(new Member(
                 6,
                 "Harlod",
                 "Anderson",
@@ -179,12 +179,27 @@ public class Modal {
                 "081212341",
                 "harold@emalprovider.com",
                 "password"
-        );
-        squads.add(new Squad(
-                "Senior Team"
+        ));
+        coaches.add(new Member(
+                7,
+                "Pete",
+                "Henderson",
+                "42 Milk Street",
+                "AYX 0123",
+                "0112213344",
+                "01/05/1990",
+                "01234 500 124",
+                "081212300",
+                "petehenderson@email.com",
+                "password"
         ));
         squads.add(new Squad(
-                "Junior Team"
+                "Senior Team",
+                6
+        ));
+        squads.add(new Squad(
+                "Junior Team",
+                7
         ));
         squads.get(0).addPlayer(players.get(0).getUID());
         squads.get(0).addPlayer(players.get(1).getUID());
@@ -232,8 +247,9 @@ public class Modal {
             System.out.println("File not found");
         }
         try {
-            Reader reader = new FileReader("data/coach.json");
-            coach = gson.fromJson(reader, Member.class);
+            Reader reader = new FileReader("data/coaches.json");
+            coaches = gson.fromJson(reader, new TypeToken<ArrayList<Member>>() {
+            }.getType());
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
@@ -259,8 +275,8 @@ public class Modal {
             e.printStackTrace();
         }
 
-        try (Writer writer = new FileWriter("data/coach.json")) {
-            gson.toJson(coach, writer);
+        try (Writer writer = new FileWriter("data/coaches.json")) {
+            gson.toJson(coaches, writer);
         } catch (IOException e) {
             System.out.println("Error writing json to file");
             e.printStackTrace();
@@ -270,7 +286,7 @@ public class Modal {
     public boolean checkForSystemData() {
         File playersData = new File("data/players.json");
         File squadsData = new File("data/squads.json");
-        File coachData = new File("data/coach.json");
+        File coachData = new File("data/coaches.json");
         if (playersData.exists() && squadsData.exists() && coachData.exists()) {
             return true;
         } else {
@@ -286,8 +302,8 @@ public class Modal {
         return squads;
     }
 
-    public Member getCoach() {
-        return coach;
+    public ArrayList<Member> getCoaches() {
+        return coaches;
     }
 
     public void outputAllData() {
@@ -299,7 +315,7 @@ public class Modal {
             System.out.println(squad.toString());
         }
 
-        System.out.println(coach.toString());
+        System.out.println(coaches.toString());
     }
 
     public Player getPlayerFromID(int ID) {

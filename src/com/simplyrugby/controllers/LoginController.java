@@ -1,13 +1,18 @@
 package com.simplyrugby.controllers;
 
 import com.simplyrugby.modals.Modal;
+import com.simplyrugby.objects.Member;
 import com.simplyrugby.utils.Hash;
+import com.simplyrugby.utils.SimpleAlerts;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -51,26 +56,23 @@ public class LoginController {
             }
             ((Node) (event.getSource())).getScene().getWindow().hide();
         } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Invalid login credentials", ButtonType.OK);
-            alert.initStyle(StageStyle.DECORATED);
-            alert.showAndWait();
+            SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "Invalid login credentials", "You have provided invalid login credentials. Either your user id or password is incorrect.").showAndWait();
             return;
         }
     }
 
     private boolean validateLogin(String UID, String password) {
-        int ID = 0;
+        int ID;
         try {
             ID = Integer.parseInt(UID);
         } catch (NumberFormatException e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Not a valid ID", ButtonType.OK);
-            alert.showAndWait();
             return false;
         }
-        if (modal.getCoach().getUID() == ID && modal.getCoach().getPassword().equals(Hash.getSha512(password))) {
-            return true;
-        } else {
-            return false;
+        for (Member coach : modal.getCoaches()) {
+            if (coach.getUID() == ID && coach.getPassword().equals(Hash.getSha512(password))) {
+                return true;
+            }
         }
+        return false;
     }
 }
