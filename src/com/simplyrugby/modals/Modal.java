@@ -303,26 +303,4 @@ public class Modal {
         return coaches;
     }
 
-    public void outputAllData() {
-        for (Player player : players) {
-            System.out.println(player.toString());
-        }
-
-        for (Squad squad : squads) {
-            System.out.println(squad.toString());
-        }
-
-        System.out.println(coaches.toString());
-    }
-
-    public Player getPlayerFromID(int ID) {
-        boolean found = false;
-        for (Player player : players) {
-            if (player.getUID() == ID) {
-                found = true;
-                return player;
-            }
-        }
-        return null;
-    }
 }
