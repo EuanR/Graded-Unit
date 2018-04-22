@@ -7,11 +7,14 @@ import java.util.ArrayList;
  */
 public class Squad {
 
-    String squadName = "";
-    ArrayList<Integer> playerIDs = new ArrayList<Integer>();
+    private String squadName = "";
+    private ArrayList<Integer> playerIDs = new ArrayList<Integer>();
+    private int coachID;
 
-    public Squad(String squadName) {
+
+    public Squad(String squadName, int coachID) {
         this.squadName = squadName;
+        this.coachID = coachID;
     }
 
     public String getSquadName() {
