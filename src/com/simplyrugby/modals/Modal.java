@@ -14,10 +14,24 @@ import java.util.ArrayList;
  */
 public class Modal {
 
+    /**
+     * Holds the players currently in the system
+     */
     private ArrayList<Player> players = new ArrayList<>();
+    /**
+     * Holds the squads currently in the system
+     */
     private ArrayList<Squad> squads = new ArrayList<>();
+    /**
+     * Holds the coaches currently in the system
+     */
     private ArrayList<Member> coaches = new ArrayList<>();
 
+    /**
+     * Constructor
+     * <p>
+     * Will either generate default system data or import existing data
+     */
     public Modal() {
         if (checkForSystemData()) {
             importSystemData();
@@ -26,6 +40,9 @@ public class Modal {
         }
     }
 
+    /**
+     * Generates default system data
+     */
     public void rebuildSystemData() {
         ArrayList<String> healthIssues = new ArrayList<String>();
         healthIssues.add("Hayfever");
@@ -240,6 +257,9 @@ public class Modal {
         exportSystemData();
     }
 
+    /**
+     * Imports system data from existing Json files using Gson
+     */
     public void importSystemData() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Type playerType = new TypeToken<ArrayList<Player>>() {
@@ -268,6 +288,11 @@ public class Modal {
         }
     }
 
+    /**
+     * Saves all current system data to local files
+     * <p>
+     * Saves all of the current system data into local files in Json. Using Gson in order to convert the classes in the system to Json.
+     */
     public void exportSystemData() {
         String json = "";
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -293,6 +318,11 @@ public class Modal {
         }
     }
 
+    /**
+     * Checks if there is any data currently saved to local files
+     *
+     * @return Returns true if there is data in local files or false if there is none
+     */
     public boolean checkForSystemData() {
         File playersData = new File("data/players.json");
         File squadsData = new File("data/squads.json");
@@ -304,14 +334,26 @@ public class Modal {
         }
     }
 
+    /**
+     * Returns all players in the system
+     * @return Arraylist of all of the players in the system
+     */
     public ArrayList<Player> getPlayers() {
         return players;
     }
 
+    /**
+     * Returns all squads in the system
+     * @return Arraylist of all of the squads in the system
+     */
     public ArrayList<Squad> getSquads() {
         return squads;
     }
 
+    /**
+     * Returns all players in the system
+     * @return Arraylist of all of the squads in the system
+     */
     public ArrayList<Member> getCoaches() {
         return coaches;
     }
