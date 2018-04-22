@@ -59,9 +59,10 @@ public class Search {
     /**
      * Returns a SkillCategory object specified in the parameters
      *
-     * @param skillCategoryName The name of the skill category
-     * @param playerID          The id of the player who has the category
+     * @param skillCategoryName     The name of the skill category
+     * @param playerID              The id of the player who has the category
      * @return Returns the SkillCategory object for the specified parameters
+     *
      * @throws SkillCategoryNotFoundException Throws if the SkillCategory is not found in the players skills
      */
     public static SkillCategory getSkillCategoryFromName(String skillCategoryName, int playerID) throws SkillCategoryNotFoundException {
