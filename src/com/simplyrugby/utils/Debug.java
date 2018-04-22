@@ -13,7 +13,7 @@ public class Debug {
      *     }
      * </pre>
      *
-     * @param log The text to be output in the console
+     * @param log   The text to be output in the console
      */
     public static void log(String log) {
         System.out.println(log);
