@@ -43,7 +43,9 @@ public class LoginController {
                 Parent root = (Parent) fxmlLoader.load();
                 HomeController controller = fxmlLoader.getController();
                 controller.setModal(this.modal);
-                controller.init();
+                if (!controller.init(Integer.parseInt(txtUserID.getText()))) {
+                    return;
+                }
                 Stage stage = new Stage();
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.initStyle(StageStyle.DECORATED);

@@ -24,6 +24,7 @@ import java.util.Optional;
 
 /**
  * @author Euan
+ * @// TODO: 22/04/2018 Set stage title to contain the current squad name, simimlar to how SkillDetails and SkillsMenu are displayed
  */
 public class HomeController {
 
@@ -39,29 +40,43 @@ public class HomeController {
     private Label lblSelectPlayerFixed;
 
     @FXML
-    public void init() {
-        TextInputDialog getSquad = new TextInputDialog();
-        Optional<String> tempSquadName = null;
-        Button cancel = (Button) getSquad.getDialogPane().lookupButton(ButtonType.CANCEL);
+    public boolean init(int uid) {
+        ArrayList<String> squadsCoaching = new ArrayList<>();
         String squadName = "";
-        cancel.addEventFilter(ActionEvent.ACTION, event ->
-                System.exit(0)
-        );
-        getSquad.setResizable(false);
-        getSquad.setHeaderText("Please enter the name of the squad you wish to manage");
-        getSquad.setTitle("Please enter the name of the squad you wish to manage");
-        tempSquadName = getSquad.showAndWait();
-        if (tempSquadName.isPresent()) {
-            squadName = tempSquadName.get();
+        for (Squad squad : modal.getSquads()) {
+            if (squad.getCoachID() == uid) {
+                squadsCoaching.add(squad.getSquadName());
+            }
         }
-        while (!squadExists(squadName)) {
-            getSquad.setResizable(true);
+        if (squadsCoaching.size() <= 0) {
+            SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "No squads", "You are not coaching any squads!").showAndWait();
+            return false;
+        }
+        if (squadsCoaching.size() > 1) {
+            TextInputDialog getSquad = new TextInputDialog();
+            Optional<String> tempSquadName = null;
+            Button cancel = (Button) getSquad.getDialogPane().lookupButton(ButtonType.CANCEL);
+            cancel.addEventFilter(ActionEvent.ACTION, event ->
+                    System.exit(0)
+            );
+            getSquad.setResizable(false);
             getSquad.setHeaderText("Please enter the name of the squad you wish to manage");
             getSquad.setTitle("Please enter the name of the squad you wish to manage");
             tempSquadName = getSquad.showAndWait();
             if (tempSquadName.isPresent()) {
                 squadName = tempSquadName.get();
             }
+            while (!squadExists(squadName)) {
+                getSquad.setResizable(true);
+                getSquad.setHeaderText("Please enter the name of the squad you wish to manage");
+                getSquad.setTitle("Please enter the name of the squad you wish to manage");
+                tempSquadName = getSquad.showAndWait();
+                if (tempSquadName.isPresent()) {
+                    squadName = tempSquadName.get();
+                }
+            }
+        } else {
+            squadName = squadsCoaching.get(0);
         }
         for (Squad squad : modal.getSquads()) {
             if (squad.getSquadName().toLowerCase().equals(squadName.toLowerCase())) {
@@ -77,6 +92,7 @@ public class HomeController {
                 break;
             }
         }
+        return true;
     }
 
     @FXML
