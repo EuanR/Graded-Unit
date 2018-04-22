@@ -5,19 +5,19 @@ package com.simplyrugby.objects;
  */
 public class Skill {
 
-    private String skillName = "";
-    int skillRating = -1;
+    private String skillName;
+    private String skillRating;
 
-    public Skill(String skillName, int skillRating) {
+    public Skill(String skillName, String skillRating) {
         this.skillName = skillName;
         this.skillRating = skillRating;
     }
 
-    public int getSkillRating() {
+    public String getSkillRating() {
         return skillRating;
     }
 
-    public void setSkillRating(int skillRating) {
+    public void setSkillRating(String skillRating) {
         this.skillRating = skillRating;
     }
 

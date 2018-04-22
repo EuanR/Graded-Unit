@@ -187,21 +187,21 @@ public class Modal {
         squads.get(1).addPlayer(players.get(5).getUID());
         for (Player player : players) {
             player.addSkillCategory("Passing");
-            player.addSkillToCategory("Passing", "Standard", 0);
-            player.addSkillToCategory("Passing", "Spin", 0);
-            player.addSkillToCategory("Passing", "Pop", 0);
+            player.addSkillToCategory("Passing", "Standard", "0");
+            player.addSkillToCategory("Passing", "Spin", "0");
+            player.addSkillToCategory("Passing", "Pop", "0");
             player.addSkillCategory("Tackling");
-            player.addSkillToCategory("Tackling", "Front", 0);
-            player.addSkillToCategory("Tackling", "Rear", 0);
-            player.addSkillToCategory("Tackling", "Side", 0);
-            player.addSkillToCategory("Tackling", "Scrabble", 0);
+            player.addSkillToCategory("Tackling", "Front", "0");
+            player.addSkillToCategory("Tackling", "Rear", "0");
+            player.addSkillToCategory("Tackling", "Side", "0");
+            player.addSkillToCategory("Tackling", "Scrabble", "0");
             player.addSkillCategory("Kicking");
-            player.addSkillToCategory("Kicking", "Drop", 0);
-            player.addSkillToCategory("Kicking", "Punt", 0);
-            player.addSkillToCategory("Kicking", "Grubber", 0);
-            player.addSkillToCategory("Kicking", "Goal", 0);
+            player.addSkillToCategory("Kicking", "Drop", "0");
+            player.addSkillToCategory("Kicking", "Punt", "0");
+            player.addSkillToCategory("Kicking", "Grubber", "0");
+            player.addSkillToCategory("Kicking", "Goal", "0");
             player.getSkills().get(0).addNotes("Good at passing");
-            player.getSkills().get(0).addSkill("Standard", 0);
+            player.getSkills().get(0).addSkill("Standard", "0");
         }
         exportSystemData();
     }

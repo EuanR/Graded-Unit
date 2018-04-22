@@ -14,19 +14,19 @@
         "skills": [
           {
             "skillName": "Standard",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Spin",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Pop",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Standard",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       },
@@ -36,19 +36,19 @@
         "skills": [
           {
             "skillName": "Front",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Rear",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Side",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Scrabble",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       },
@@ -58,19 +58,19 @@
         "skills": [
           {
             "skillName": "Drop",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Punt",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Grubber",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Goal",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       }
@@ -108,19 +108,19 @@
         "skills": [
           {
             "skillName": "Standard",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Spin",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Pop",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Standard",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       },
@@ -130,19 +130,19 @@
         "skills": [
           {
             "skillName": "Front",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Rear",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Side",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Scrabble",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       },
@@ -152,19 +152,19 @@
         "skills": [
           {
             "skillName": "Drop",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Punt",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Grubber",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Goal",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       }
@@ -202,19 +202,19 @@
         "skills": [
           {
             "skillName": "Standard",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Spin",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Pop",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Standard",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       },
@@ -224,19 +224,19 @@
         "skills": [
           {
             "skillName": "Front",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Rear",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Side",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Scrabble",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       },
@@ -246,19 +246,19 @@
         "skills": [
           {
             "skillName": "Drop",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Punt",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Grubber",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Goal",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       }
@@ -310,19 +310,19 @@
         "skills": [
           {
             "skillName": "Standard",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Spin",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Pop",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Standard",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       },
@@ -332,19 +332,19 @@
         "skills": [
           {
             "skillName": "Front",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Rear",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Side",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Scrabble",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       },
@@ -354,19 +354,19 @@
         "skills": [
           {
             "skillName": "Drop",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Punt",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Grubber",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Goal",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       }
@@ -418,19 +418,19 @@
         "skills": [
           {
             "skillName": "Standard",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Spin",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Pop",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Standard",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       },
@@ -440,19 +440,19 @@
         "skills": [
           {
             "skillName": "Front",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Rear",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Side",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Scrabble",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       },
@@ -462,19 +462,19 @@
         "skills": [
           {
             "skillName": "Drop",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Punt",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Grubber",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Goal",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       }
@@ -526,19 +526,19 @@
         "skills": [
           {
             "skillName": "Standard",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Spin",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Pop",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Standard",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       },
@@ -548,19 +548,19 @@
         "skills": [
           {
             "skillName": "Front",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Rear",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Side",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Scrabble",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       },
@@ -570,19 +570,19 @@
         "skills": [
           {
             "skillName": "Drop",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Punt",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Grubber",
-            "skillRating": 0
+            "skillRating": "0"
           },
           {
             "skillName": "Goal",
-            "skillRating": 0
+            "skillRating": "0"
           }
         ]
       }

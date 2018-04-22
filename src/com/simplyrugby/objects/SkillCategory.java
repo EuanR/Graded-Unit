@@ -15,7 +15,7 @@ public class SkillCategory {
         this.category = category;
     }
 
-    public void addSkill(String skillName, int skillRating) {
+    public void addSkill(String skillName, String skillRating) {
         skills.add(new Skill(
                 skillName,
                 skillRating

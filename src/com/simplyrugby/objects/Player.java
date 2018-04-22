@@ -31,7 +31,7 @@ public class Player extends Member {
         return skills;
     }
 
-    public boolean addSkillToCategory(String category, String skill, int rating) {
+    public boolean addSkillToCategory(String category, String skill, String rating) {
         boolean found = false;
         for (SkillCategory skillsList : skills) {
             if (skillsList.getCategory().toLowerCase().equals(category.toLowerCase())) {
