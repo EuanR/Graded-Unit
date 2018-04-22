@@ -7,7 +7,6 @@ import com.simplyrugby.objects.Player;
 import com.simplyrugby.objects.SkillCategory;
 import com.simplyrugby.utils.Search;
 import com.simplyrugby.utils.SimpleAlerts;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,6 +24,7 @@ import java.util.Optional;
  */
 public class SkillsMenuController {
 
+    Modal modal;
     @FXML
     private Button btnAddNotes;
     @FXML
@@ -33,8 +33,6 @@ public class SkillsMenuController {
     private Button btnViewDetails;
     @FXML
     private ComboBox<ComboBoxItem> cmbSkillCategories;
-
-    Modal modal;
     private int playerID;
 
     public void setModal(Modal modal) {
@@ -89,9 +87,6 @@ public class SkillsMenuController {
         Optional<String> tempSquadName = null;
         Button cancel = (Button) newNotes.getDialogPane().lookupButton(ButtonType.CANCEL);
         String notes = "";
-        cancel.addEventFilter(ActionEvent.ACTION, event ->
-                System.exit(0)
-        );
         newNotes.setResizable(false);
         try {
             newNotes.setHeaderText("Please enter the note you wish to add for " + Search.getPlayerFromID(playerID).getFullName() + " regarding " + cmbSkillCategories.getValue().getItemText().toLowerCase() + " skill");
