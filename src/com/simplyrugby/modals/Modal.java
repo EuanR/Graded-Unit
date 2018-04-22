@@ -193,6 +193,19 @@ public class Modal {
                 "petehenderson@email.com",
                 "password"
         ));
+        coaches.add(new Member(
+                8,
+                "Andrew",
+                "Henderson",
+                "42 Milk Street",
+                "AYX 0123",
+                "0112213344",
+                "01/05/1990",
+                "01234 500 124",
+                "081212300",
+                "andrewhenderson@email.com",
+                "password"
+        ));
         squads.add(new Squad(
                 "Senior Team",
                 6
