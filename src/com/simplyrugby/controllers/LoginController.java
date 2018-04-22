@@ -1,15 +1,13 @@
 package com.simplyrugby.controllers;
 
 import com.simplyrugby.modals.Modal;
+import com.simplyrugby.utils.Hash;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -25,6 +23,8 @@ public class LoginController {
     private Button btnLogin;
     @FXML
     private TextField txtUserID;
+    @FXML
+    private PasswordField txtPassword;
 
     public void setModal(Modal modal) {
         this.modal = modal;
@@ -32,7 +32,7 @@ public class LoginController {
 
     @FXML
     private void btnLoginClickHandler(javafx.event.ActionEvent event) {
-        if (validateLogin(txtUserID.getText())) {
+        if (validateLogin(txtUserID.getText(), txtPassword.getText())) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/Home.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
@@ -58,7 +58,7 @@ public class LoginController {
         }
     }
 
-    private boolean validateLogin(String UID) {
+    private boolean validateLogin(String UID, String password) {
         int ID = 0;
         try {
             ID = Integer.parseInt(UID);
@@ -67,7 +67,7 @@ public class LoginController {
             alert.showAndWait();
             return false;
         }
-        if (modal.getCoach().getUID() == ID) {
+        if (modal.getCoach().getUID() == ID && modal.getCoach().getPassword().equals(Hash.getSha512(password))) {
             return true;
         } else {
             return false;
