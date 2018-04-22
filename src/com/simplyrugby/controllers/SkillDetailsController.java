@@ -45,8 +45,14 @@ public class SkillDetailsController {
         skillNameCol.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent>() {
             @Override
             public void handle(TableColumn.CellEditEvent cellEditEvent) {
+                if (cellEditEvent.getNewValue().toString().isEmpty()) {
+                    tblSkillData.refresh();
+                    return;
+                }
                 updateSkillName(cellEditEvent.getOldValue().toString(), cellEditEvent.getNewValue().toString());
                 modal.exportSystemData();
+                ((Skill) cellEditEvent.getTableView().getItems().get(cellEditEvent.getTablePosition().getRow())).setSkillName(cellEditEvent.getNewValue().toString());
+                tblSkillData.refresh();
             }
         });
         TableColumn skillRatingCol = new TableColumn("Skill Rating");
@@ -56,9 +62,26 @@ public class SkillDetailsController {
         skillRatingCol.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent>() {
             @Override
             public void handle(TableColumn.CellEditEvent cellEditEvent) {
+                if (cellEditEvent.getNewValue().toString().isEmpty()) {
+                    tblSkillData.refresh();
+                    return;
+                }
+                try {
+                    int tempNewRating = Integer.parseInt(cellEditEvent.getNewValue().toString());
+                    if (tempNewRating > 10 || tempNewRating < 0) {
+                        tblSkillData.refresh();
+                        return;
+                    }
+                } catch (Exception e) {
+                    tblSkillData.refresh();
+                    return;
+                }
                 Skill tempSkill = (Skill) cellEditEvent.getTableView().getItems().get(cellEditEvent.getTablePosition().getRow());
                 updateSkillRating(tempSkill.getSkillName(), cellEditEvent.getOldValue().toString(), cellEditEvent.getNewValue().toString());
                 modal.exportSystemData();
+                ((Skill) cellEditEvent.getTableView().getItems().get(cellEditEvent.getTablePosition().getRow())).setSkillRating(cellEditEvent.getNewValue().toString());
+                tblSkillData.refresh();
+
             }
         });
         tblSkillData.getColumns().addAll(skillNameCol, skillRatingCol);
