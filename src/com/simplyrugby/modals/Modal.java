@@ -40,6 +40,7 @@ public class Modal {
                 "01324 421 512",
                 "0123456789",
                 "john@email.com",
+                "password",
                 "Dr Jenkins",
                 "01283 765 456",
                 "Scrum Half",
@@ -58,6 +59,7 @@ public class Modal {
                 "01324 421 619",
                 "0123456781",
                 "andrew@email.com",
+                "password",
                 "Dr Anderson",
                 "01283 765 312",
                 "Full Back",
@@ -76,6 +78,7 @@ public class Modal {
                 "01324 411 512",
                 "0123456719",
                 "ian@email.com",
+                "password",
                 "Dr Peters",
                 "01283 729 456",
                 "Wing",
@@ -94,6 +97,7 @@ public class Modal {
                 "01324 411 512",
                 "0123456719",
                 "ian@email.com",
+                "password",
                 "Dr Peters",
                 "01283 729 456",
                 "Wing",
@@ -120,6 +124,7 @@ public class Modal {
                 "01324 411 512",
                 "0123456719",
                 "ian@email.com",
+                "password",
                 "Dr Peters",
                 "01283 729 456",
                 "Wing",
@@ -146,6 +151,7 @@ public class Modal {
                 "01324 411 512",
                 "0123456719",
                 "ian@email.com",
+                "password",
                 "Dr Peters",
                 "01283 729 456",
                 "Wing",
@@ -171,7 +177,8 @@ public class Modal {
                 "01/02/1990",
                 "01234 412 124",
                 "081212341",
-                "harold@emalprovider.com"
+                "harold@emalprovider.com",
+                "password"
         );
         squads.add(new Squad(
                 "Senior Team"

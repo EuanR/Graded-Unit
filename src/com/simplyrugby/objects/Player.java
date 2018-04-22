@@ -13,8 +13,8 @@ public class Player extends Member {
     ArrayList<SkillCategory> skills = new ArrayList<SkillCategory>();
     ArrayList<String> healthIssues = new ArrayList<String>();
 
-    public Player(int UID, String firstname, String surname, String address, String postcode, String SRUNumber, String dateOfBirth, String telephoneNumber, String mobileNumber, String email, String doctor, String doctorTelephone, String position, ArrayList<String> healthIssues) {
-        super(UID, firstname, surname, address, postcode, SRUNumber, dateOfBirth, telephoneNumber, mobileNumber, email);
+    public Player(int UID, String firstname, String surname, String address, String postcode, String SRUNumber, String dateOfBirth, String telephoneNumber, String mobileNumber, String email, String password, String doctor, String doctorTelephone, String position, ArrayList<String> healthIssues) {
+        super(UID, firstname, surname, address, postcode, SRUNumber, dateOfBirth, telephoneNumber, mobileNumber, email, password);
         this.doctor = doctor;
         this.doctorTelephone = doctorTelephone;
         this.position = position;

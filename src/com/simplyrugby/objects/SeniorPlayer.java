@@ -9,8 +9,8 @@ public class SeniorPlayer extends Player {
     String nextOfKin = "";
     String nextOfKinTelephone = "";
 
-    public SeniorPlayer(int UID, String firstname, String surname, String address, String postcode, String SRUNumber, String dateOfBirth, String telephoneNumber, String mobileNumber, String email, String doctor, String doctorTelephone, String position, ArrayList<String> healthIssues, String nextOfKin, String nextOfKinTelephone) {
-        super(UID, firstname, surname, address, postcode, SRUNumber, dateOfBirth, telephoneNumber, mobileNumber, email, doctor, doctorTelephone, position, healthIssues);
+    public SeniorPlayer(int UID, String firstname, String surname, String address, String postcode, String SRUNumber, String dateOfBirth, String telephoneNumber, String mobileNumber, String email, String password, String doctor, String doctorTelephone, String position, ArrayList<String> healthIssues, String nextOfKin, String nextOfKinTelephone) {
+        super(UID, firstname, surname, address, postcode, SRUNumber, dateOfBirth, telephoneNumber, mobileNumber, email, password, doctor, doctorTelephone, position, healthIssues);
         this.nextOfKin = nextOfKin;
         this.nextOfKinTelephone = nextOfKinTelephone;
     }

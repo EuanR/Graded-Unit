@@ -1,5 +1,7 @@
 package com.simplyrugby.objects;
 
+import com.simplyrugby.utils.Hash;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -17,9 +19,10 @@ public class Member {
     protected String telephoneNumber = "";
     protected String mobileNumber = "";
     protected String email = "";
+    protected String password = "";
 
 
-    public Member(int UID, String firstname, String surname, String address, String postcode, String SRUNumber, String dateOfBirth, String telephoneNumber, String mobileNumber, String email) {
+    public Member(int UID, String firstname, String surname, String address, String postcode, String SRUNumber, String dateOfBirth, String telephoneNumber, String mobileNumber, String email, String password) {
         this.UID = UID;
         this.firstname = firstname;
         this.surname = surname;
@@ -29,6 +32,7 @@ public class Member {
         this.telephoneNumber = telephoneNumber;
         this.mobileNumber = mobileNumber;
         this.email = email;
+        this.password = Hash.getSha512(password);
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         this.dateOfBirth = LocalDate.parse(dateOfBirth, dateFormat);
     }
