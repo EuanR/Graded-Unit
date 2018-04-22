@@ -209,6 +209,7 @@ public class Modal {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Type playerType = new TypeToken<ArrayList<Player>>() {
         }.getType();
+
         try {
             Reader reader = new FileReader("data/players.json");
             //players = gson.fromJson(reader, new TypeToken<ArrayList<Player>>(){}.getType());
@@ -237,7 +238,6 @@ public class Modal {
         if (!new File("data/").exists()) {
             new File("data/").mkdirs();
         }
-        
         try (Writer writer = new FileWriter("data/players.json")) {
             gson.toJson(players, writer);
         } catch (IOException e) {
