@@ -53,9 +53,7 @@ public class LoginController {
             }
             ((Node) (event.getSource())).getScene().getWindow().hide();
         } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Invalid login credentials", ButtonType.OK);
-            alert.initStyle(StageStyle.DECORATED);
-            alert.showAndWait();
+            return;
         }
     }
 
