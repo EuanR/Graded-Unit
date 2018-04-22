@@ -27,6 +27,8 @@ import java.util.Optional;
  */
 public class HomeController {
 
+    Modal modal;
+    int currentSquadIndex = 0;
     @FXML
     private AnchorPane pane;
     @FXML
@@ -35,10 +37,6 @@ public class HomeController {
     private Button btnViewSkills;
     @FXML
     private Label lblSelectPlayerFixed;
-
-    Modal modal;
-
-    int currentSquadIndex = 0;
 
     @FXML
     public void init() {

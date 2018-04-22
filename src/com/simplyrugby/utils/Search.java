@@ -27,7 +27,7 @@ public class Search {
      *     }
      * </pre>
      *
-     * @param playerID      The ID of the player
+     * @param playerID The ID of the player
      * @return An instance of the Player object from the ID
      * @throws PlayerNotFoundException Throws if there is no player matching the given ID, or if the player is not found
      */

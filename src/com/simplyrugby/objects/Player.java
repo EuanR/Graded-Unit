@@ -31,6 +31,10 @@ public class Player extends Member {
         return skills;
     }
 
+    public void setSkills(ArrayList<SkillCategory> skills) {
+        this.skills = skills;
+    }
+
     public boolean addSkillToCategory(String category, String skill, String rating) {
         boolean found = false;
         for (SkillCategory skillsList : skills) {
@@ -68,10 +72,6 @@ public class Player extends Member {
 
     public void setPosition(String position) {
         this.position = position;
-    }
-
-    public void setSkills(ArrayList<SkillCategory> skills) {
-        this.skills = skills;
     }
 
     public ArrayList<String> getHealthIssues() {

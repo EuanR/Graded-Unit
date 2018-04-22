@@ -45,6 +45,7 @@ public class ComboBoxItem {
 
     /**
      * Used by combo box to display text to the user
+     *
      * @return Returns the item text
      */
     @Override

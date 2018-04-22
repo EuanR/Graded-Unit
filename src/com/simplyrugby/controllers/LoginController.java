@@ -21,16 +21,14 @@ import java.io.IOException;
  */
 public class LoginController {
     Modal modal;
+    @FXML
+    private Button btnLogin;
+    @FXML
+    private TextField txtUserID;
 
     public void setModal(Modal modal) {
         this.modal = modal;
     }
-
-    @FXML
-    private Button btnLogin;
-
-    @FXML
-    private TextField txtUserID;
 
     @FXML
     private void btnLoginClickHandler(javafx.event.ActionEvent event) {

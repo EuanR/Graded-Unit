@@ -2,8 +2,8 @@
 
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane fx:id="pane" prefHeight="410.0" prefWidth="419.0" xmlns="http://javafx.com/javafx/9.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.simplyrugby.controllers.SkillDetailsController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="pane" prefHeight="410.0" prefWidth="419.0"
+            xmlns="http://javafx.com/javafx/9.0.1" fx:controller="com.simplyrugby.controllers.SkillDetailsController">
     <children>
         <TableView fx:id="tblSkillData" editable="true" layoutX="14.0" layoutY="14.0" prefHeight="386.0"
                    prefWidth="391.0"/>
