@@ -114,35 +114,5 @@ public class SkillsMenuController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        if (cmbSkillCategories.getSelectionModel().isEmpty()) {
-//            SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "No skill category selected", "You need to select a skill category").showAndWait();
-//            return;
-//        }
-//        StringBuilder notesStringBuilder = new StringBuilder();
-//        for (Player player : modal.getPlayers()) {
-//            if (player.getUID() == playerID) {
-//                for (SkillCategory skillCategory : player.getSkills()) {
-//                    if (skillCategory.getCategory().equals(cmbSkillCategories.getValue().getItemText())) {
-//                        for (String notes : skillCategory.getNotes()) {
-//                            notesStringBuilder.append(notes);
-//                            notesStringBuilder.append("\n");
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        if (notesStringBuilder.length() <= 0) {
-//            try {
-//                SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "No notes found", "No notes found for " + Search.getPlayerFromID(playerID).getFullName() + " regarding " + cmbSkillCategories.getValue().getItemText().toLowerCase() + " skill").showAndWait();
-//            } catch (PlayerNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//        } else {
-//            try {
-//                SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "Notes for " + Search.getPlayerFromID(playerID).getFullName() + " regarding " + cmbSkillCategories.getValue().getItemText().toLowerCase() + " skill", notesStringBuilder.toString()).showAndWait();
-//            } catch (PlayerNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//        }
     }
 }
