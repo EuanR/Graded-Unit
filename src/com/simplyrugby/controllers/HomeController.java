@@ -5,14 +5,17 @@ import com.simplyrugby.modals.Modal;
 import com.simplyrugby.objects.ComboBoxItem;
 import com.simplyrugby.objects.Player;
 import com.simplyrugby.objects.Squad;
+import com.simplyrugby.utils.InputDialog;
 import com.simplyrugby.utils.Search;
 import com.simplyrugby.utils.SimpleAlerts;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -54,24 +57,13 @@ public class HomeController {
             return false;
         }
         if (squadsCoaching.size() > 1) {
-            TextInputDialog getSquad = new TextInputDialog();
-            Optional<String> tempSquadName = null;
-            Button cancel = (Button) getSquad.getDialogPane().lookupButton(ButtonType.CANCEL);
-            cancel.addEventFilter(ActionEvent.ACTION, event ->
-                    System.exit(0)
-            );
-            getSquad.setResizable(false);
-            getSquad.setHeaderText("Please enter the name of the squad you wish to manage");
-            getSquad.setTitle("Please enter the name of the squad you wish to manage");
-            tempSquadName = getSquad.showAndWait();
+            Optional<String> tempSquadName;
+            tempSquadName = InputDialog.textInput("Please enter the name of the squad you wish to manage", "Please enter the name of the squad you wish to manage", false, true).showAndWait();
             if (tempSquadName.isPresent()) {
                 squadName = tempSquadName.get();
             }
             while (!squadExists(squadName)) {
-                getSquad.setResizable(true);
-                getSquad.setHeaderText("Please enter the name of the squad you wish to manage");
-                getSquad.setTitle("Please enter the name of the squad you wish to manage");
-                tempSquadName = getSquad.showAndWait();
+                tempSquadName = InputDialog.textInput("Please enter the name of the squad you wish to manage", "Please enter the name of the squad you wish to manage", false, true).showAndWait();
                 if (tempSquadName.isPresent()) {
                     squadName = tempSquadName.get();
                 }

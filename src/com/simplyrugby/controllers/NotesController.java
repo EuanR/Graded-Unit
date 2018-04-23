@@ -4,10 +4,14 @@ import com.simplyrugby.exceptions.PlayerNotFoundException;
 import com.simplyrugby.modals.Modal;
 import com.simplyrugby.objects.Player;
 import com.simplyrugby.objects.SkillCategory;
+import com.simplyrugby.utils.InputDialog;
 import com.simplyrugby.utils.Search;
 import com.simplyrugby.utils.SimpleAlerts;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ListView;
 
 import java.util.Optional;
 
@@ -46,18 +50,13 @@ public class NotesController {
 
     @FXML
     private void btnAddNotesClickHandler() {
-        TextInputDialog newNotes = new TextInputDialog();
-        Optional<String> tempSquadName;
-        Button cancel = (Button) newNotes.getDialogPane().lookupButton(ButtonType.CANCEL);
+        Optional<String> tempSquadName = null;
         String notes;
-        newNotes.setResizable(false);
         try {
-            newNotes.setHeaderText("Please enter the note you wish to add for " + Search.getPlayerFromID(playerID).getFullName() + " regarding " + currentSkillCategory.toLowerCase() + " skill");
+            tempSquadName = InputDialog.textInput("Please enter the note you wish to add", "Please enter the note you wish to add for " + Search.getPlayerFromID(playerID).getFullName() + " regarding " + currentSkillCategory.toLowerCase() + " skill", false, false).showAndWait();
         } catch (PlayerNotFoundException e) {
             e.printStackTrace();
         }
-        newNotes.setTitle("Please enter the note you wish to add");
-        tempSquadName = newNotes.showAndWait();
         if (tempSquadName.isPresent()) {
             notes = tempSquadName.get();
             if (checkForDuplicateNote(notes)) {
