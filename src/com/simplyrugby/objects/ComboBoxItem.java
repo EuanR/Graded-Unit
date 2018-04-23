@@ -18,7 +18,7 @@ public class ComboBoxItem {
      * Constructor
      *
      * @param itemText The text to be displayed in the combo box
-     * @param itemID   The hidden id
+     * @param itemID   The hidden value
      */
     public ComboBoxItem(String itemText, int itemID) {
         this.itemText = itemText;
