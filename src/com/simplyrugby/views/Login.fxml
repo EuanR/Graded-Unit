@@ -21,8 +21,8 @@
             <children>
                 <Button fx:id="btnLogin" defaultButton="true" layoutX="74.0" layoutY="171.0" mnemonicParsing="false"
                         onAction="#btnLoginClickHandler" text="Login"/>
-                <TextField fx:id="txtUserID" layoutX="22.0" layoutY="88.0" promptText="Member ID"/>
                 <Label fx:id="lblLoginTitleFixed" layoutX="82.0" layoutY="25.0" text="Login"/>
+                <TextField fx:id="txtUserID" layoutX="22.0" layoutY="88.0" promptText="Member ID"/>
                 <PasswordField fx:id="txtPassword" layoutX="22.0" layoutY="126.0" promptText="Password"/>
             </children>
         </Pane>

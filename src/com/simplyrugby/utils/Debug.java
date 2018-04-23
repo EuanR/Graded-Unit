@@ -3,7 +3,7 @@ package com.simplyrugby.utils;
 /**
  * @author Euan
  */
-public class Debug {
+public final class Debug {
 
     /**
      * Outputs a string to console
