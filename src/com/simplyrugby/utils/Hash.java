@@ -5,7 +5,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 /**
  * @author Euan
  */
-public class Hash {
+public final class Hash {
 
     /**
      * Hashes a given string using the SHA512 secure hash algorithm

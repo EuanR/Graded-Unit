@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * @author Euan
  */
-public class Search {
+public final class Search {
 
     /**
      * Returns a Player object from a given player ID
