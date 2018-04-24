@@ -1,7 +1,7 @@
 package com.simplyrugby.controllers;
 
 import com.simplyrugby.exceptions.SkillCategoryNotFoundException;
-import com.simplyrugby.modals.Modal;
+import com.simplyrugby.modals.Model;
 import com.simplyrugby.objects.Player;
 import com.simplyrugby.objects.Skill;
 import com.simplyrugby.objects.SkillCategory;
@@ -21,7 +21,7 @@ import javafx.scene.layout.AnchorPane;
  */
 public class SkillDetailsController {
 
-    Modal modal;
+    Model model;
     private String skillCategoryName;
     private int playerID;
 
@@ -30,8 +30,8 @@ public class SkillDetailsController {
     @FXML
     private AnchorPane pane;
 
-    public void setModal(Modal modal) {
-        this.modal = modal;
+    public void setModel(Model model) {
+        this.model = model;
     }
 
     public void init(String skillCategoryName, int playerID) {
@@ -50,7 +50,7 @@ public class SkillDetailsController {
                     return;
                 }
                 updateSkillName(cellEditEvent.getOldValue().toString(), cellEditEvent.getNewValue().toString());
-                modal.exportSystemData();
+                model.exportSystemData();
                 ((Skill) cellEditEvent.getTableView().getItems().get(cellEditEvent.getTablePosition().getRow())).setSkillName(cellEditEvent.getNewValue().toString());
                 tblSkillData.refresh();
             }
@@ -78,7 +78,7 @@ public class SkillDetailsController {
                 }
                 Skill tempSkill = (Skill) cellEditEvent.getTableView().getItems().get(cellEditEvent.getTablePosition().getRow());
                 updateSkillRating(tempSkill.getSkillName(), cellEditEvent.getOldValue().toString(), cellEditEvent.getNewValue().toString());
-                modal.exportSystemData();
+                model.exportSystemData();
                 ((Skill) cellEditEvent.getTableView().getItems().get(cellEditEvent.getTablePosition().getRow())).setSkillRating(cellEditEvent.getNewValue().toString());
                 tblSkillData.refresh();
 
@@ -97,7 +97,7 @@ public class SkillDetailsController {
     }
 
     private void updateSkillName(String currentSkillName, String newSkillName) {
-        for (Player player : modal.getPlayers()) {
+        for (Player player : model.getPlayers()) {
             if (player.getUID() == playerID) {
                 for (SkillCategory skillCategory : player.getSkills()) {
                     for (Skill skill : skillCategory.getSkills()) {
@@ -111,7 +111,7 @@ public class SkillDetailsController {
     }
 
     private void updateSkillRating(String skillName, String currentSkillRating, String newSkillRating) {
-        for (Player player : modal.getPlayers()) {
+        for (Player player : model.getPlayers()) {
             if (player.getUID() == playerID) {
                 for (SkillCategory skillCategory : player.getSkills()) {
                     for (Skill skill : skillCategory.getSkills()) {

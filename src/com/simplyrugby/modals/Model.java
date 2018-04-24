@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * @author Euan
  */
-public class Modal {
+public class Model {
 
     /**
      * Holds the players currently in the system
@@ -32,7 +32,7 @@ public class Modal {
      * <p>
      * Will either generate default system data or import existing data
      */
-    public Modal() {
+    public Model() {
         if (checkForSystemData()) {
             importSystemData();
         } else {

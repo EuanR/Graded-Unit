@@ -1,7 +1,7 @@
 package com.simplyrugby.controllers;
 
 import com.simplyrugby.exceptions.PlayerNotFoundException;
-import com.simplyrugby.modals.Modal;
+import com.simplyrugby.modals.Model;
 import com.simplyrugby.objects.Player;
 import com.simplyrugby.objects.SkillCategory;
 import com.simplyrugby.utils.InputDialog;
@@ -20,7 +20,7 @@ import java.util.Optional;
  */
 public class NotesController {
 
-    Modal modal;
+    Model model;
     private int playerID;
     private String currentSkillCategory;
     @FXML
@@ -30,8 +30,8 @@ public class NotesController {
     @FXML
     private Button btnAddNotes;
 
-    public void setModal(Modal modal) {
-        this.modal = modal;
+    public void setModel(Model model) {
+        this.model = model;
     }
 
     @FXML
@@ -67,12 +67,12 @@ public class NotesController {
                 }
                 return;
             }
-            for (Player player : modal.getPlayers()) {
+            for (Player player : model.getPlayers()) {
                 if (player.getUID() == playerID) {
                     for (SkillCategory skillCategory : player.getSkills()) {
                         if (skillCategory.getCategory().equals(currentSkillCategory)) {
                             skillCategory.addNotes(notes);
-                            modal.exportSystemData();
+                            model.exportSystemData();
                             updateNotes();
                         }
                     }
@@ -94,14 +94,14 @@ public class NotesController {
         editOptions.setTitle("Delete Note");
         editOptions.showAndWait();
         if (editOptions.getResult() == ButtonType.OK) {
-            for (Player player : modal.getPlayers()) {
+            for (Player player : model.getPlayers()) {
                 if (player.getUID() == playerID) {
                     for (SkillCategory skillCategory : player.getSkills()) {
                         if (skillCategory.getCategory().equals(currentSkillCategory)) {
                             for (String notes : skillCategory.getNotes()) {
                                 if (notes.toLowerCase().equals(currentlySelectedNote.toLowerCase())) {
                                     skillCategory.getNotes().remove(indexToRemove);
-                                    modal.exportSystemData();
+                                    model.exportSystemData();
                                     updateNotes();
                                     return;
                                 }
@@ -120,7 +120,7 @@ public class NotesController {
     }
 
     private void addNotesToListBox(int playerID, String currentSkillCategory) {
-        for (Player player : modal.getPlayers()) {
+        for (Player player : model.getPlayers()) {
             if (player.getUID() == playerID) {
                 for (SkillCategory skillCategory : player.getSkills()) {
                     if (skillCategory.getCategory().equals(currentSkillCategory)) {
@@ -134,7 +134,7 @@ public class NotesController {
     }
 
     private boolean checkForDuplicateNote(String noteText) {
-        for (Player player : modal.getPlayers()) {
+        for (Player player : model.getPlayers()) {
             if (player.getUID() == playerID) {
                 for (SkillCategory skillCategory : player.getSkills()) {
                     if (skillCategory.getCategory().equals(currentSkillCategory)) {

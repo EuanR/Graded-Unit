@@ -1,7 +1,7 @@
 package com.simplyrugby.controllers;
 
 import com.simplyrugby.exceptions.PlayerNotFoundException;
-import com.simplyrugby.modals.Modal;
+import com.simplyrugby.modals.Model;
 import com.simplyrugby.objects.ComboBoxItem;
 import com.simplyrugby.objects.SkillCategory;
 import com.simplyrugby.utils.Search;
@@ -26,7 +26,7 @@ import java.io.IOException;
  */
 public class SkillsMenuController {
 
-    Modal modal;
+    Model model;
     @FXML
     private Button btnViewNotes;
     @FXML
@@ -35,8 +35,8 @@ public class SkillsMenuController {
     private ComboBox<ComboBoxItem> cmbSkillCategories;
     private int playerID;
 
-    public void setModal(Modal modal) {
-        this.modal = modal;
+    public void setModel(Model model) {
+        this.model = model;
     }
 
     @FXML
@@ -63,7 +63,7 @@ public class SkillsMenuController {
             Parent root = null;
             root = (Parent) fxmlLoader.load();
             SkillDetailsController controller = fxmlLoader.getController();
-            controller.setModal(this.modal);
+            controller.setModel(this.model);
             controller.init(cmbSkillCategories.getValue().getItemText(), playerID);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -95,7 +95,7 @@ public class SkillsMenuController {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/Notes.fxml"));
             Parent root = (Parent) fxmlLoader.load();
             NotesController controller = fxmlLoader.getController();
-            controller.setModal(this.modal);
+            controller.setModel(this.model);
             controller.init(playerID, cmbSkillCategories.getValue().getItemText());
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);

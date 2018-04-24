@@ -1,6 +1,6 @@
 package com.simplyrugby.controllers;
 
-import com.simplyrugby.modals.Modal;
+import com.simplyrugby.modals.Model;
 import com.simplyrugby.objects.Member;
 import com.simplyrugby.utils.Hash;
 import com.simplyrugby.utils.SimpleAlerts;
@@ -25,7 +25,7 @@ import java.io.IOException;
  * @author Euan
  */
 public class LoginController {
-    Modal modal;
+    Model model;
     @FXML
     private Button btnLogin;
     @FXML
@@ -33,8 +33,8 @@ public class LoginController {
     @FXML
     private PasswordField txtPassword;
 
-    public void setModal(Modal modal) {
-        this.modal = modal;
+    public void setModel(Model model) {
+        this.model = model;
     }
 
     @FXML
@@ -44,7 +44,7 @@ public class LoginController {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/Home.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 HomeController controller = fxmlLoader.getController();
-                controller.setModal(this.modal);
+                controller.setModel(this.model);
                 if (!controller.init(Integer.parseInt(txtUserID.getText()))) {
                     return;
                 }
@@ -76,7 +76,7 @@ public class LoginController {
         } catch (NumberFormatException e) {
             return false;
         }
-        for (Member coach : modal.getCoaches()) {
+        for (Member coach : model.getCoaches()) {
             if (coach.getUID() == ID && coach.getPassword().equals(Hash.getSha512(password))) {
                 return true;
             }
