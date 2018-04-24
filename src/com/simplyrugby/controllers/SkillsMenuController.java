@@ -11,7 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
@@ -26,19 +25,35 @@ import java.io.IOException;
  */
 public class SkillsMenuController {
 
+    /**
+     * The model
+     */
     Model model;
-    @FXML
-    private Button btnViewNotes;
-    @FXML
-    private Button btnViewDetails;
+
+    /**
+     * Combo box that stores the skill categories
+     */
     @FXML
     private ComboBox<ComboBoxItem> cmbSkillCategories;
+    /**
+     * The player id of the player who's skill categories are being displayed
+     */
     private int playerID;
 
+    /**
+     * Sets the current model
+     *
+     * @param model The model
+     */
     public void setModel(Model model) {
         this.model = model;
     }
 
+    /**
+     * Initialising the view and adding the players skill categories to the combo box
+     *
+     * @param playerID
+     */
     @FXML
     public void init(int playerID) {
         this.playerID = playerID;
@@ -52,6 +67,11 @@ public class SkillsMenuController {
         }
     }
 
+    /**
+     * Displays the skill details of the selected skill category
+     *
+     * @param event Calling event
+     */
     @FXML
     private void btnViewDetailsClickHandler(javafx.event.ActionEvent event) {
         if (cmbSkillCategories.getSelectionModel().isEmpty()) {
@@ -80,11 +100,11 @@ public class SkillsMenuController {
         }
     }
 
-    @FXML
-    private void btnAddNotesClickHandler() {
-
-    }
-
+    /**
+     * Displays the notes for the selected skill category
+     *
+     * @param event Calling event
+     */
     @FXML
     private void btnViewNotesClickHandler(javafx.event.ActionEvent event) {
         if (cmbSkillCategories.getSelectionModel().isEmpty()) {

@@ -13,9 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -36,16 +34,27 @@ public class HomeController {
      * The model
      */
     Model model;
+    /**
+     * The name of the squad being managed
+     */
     private String currentSquadName;
+    /**
+     * The pane from the current view
+     */
     @FXML
     private AnchorPane pane;
+    /**
+     * Combo box that stores the player names
+     */
     @FXML
     private ComboBox<ComboBoxItem> cmbPlayers;
-    @FXML
-    private Button btnViewSkills;
-    @FXML
-    private Label lblSelectPlayerFixed;
 
+    /**
+     * Initialising the view by adding the data for the current squad
+     *
+     * @param uid The ID of the coach that has logged in
+     * @return Returns false if the coach does not have any squads to coach
+     */
     @FXML
     public boolean init(int uid) {
         ArrayList<String> squadsCoaching = new ArrayList<>();
@@ -92,11 +101,20 @@ public class HomeController {
         return true;
     }
 
+    /**
+     * Updates the title of the scene to contain the current squad name
+     */
     public void updateSceneTitle() {
         Stage tempStage = (Stage) pane.getScene().getWindow();
         tempStage.setTitle("Simply Rugby Coaching Home - " + currentSquadName);
     }
 
+
+    /**
+     * Will display the skills of the selected player
+     *
+     * @param event Calling event
+     */
     @FXML
     private void btnViewSkillsClickHandler(javafx.event.ActionEvent event) {
         if (cmbPlayers.getSelectionModel().isEmpty()) {
@@ -124,10 +142,21 @@ public class HomeController {
         }
     }
 
+    /**
+     * Sets the current model
+     *
+     * @param model The model
+     */
     public void setModel(Model model) {
         this.model = model;
     }
 
+    /**
+     * Checks if a squad exists based on its name
+     *
+     * @param squadName The name of the squad being checked for
+     * @return Returns true if the squad exists. Returns false if the squad does not exist.
+     */
     private boolean squadExists(String squadName) {
         int index = 0;
         int currentSquadIndex = 0;

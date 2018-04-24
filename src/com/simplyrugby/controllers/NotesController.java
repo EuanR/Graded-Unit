@@ -9,7 +9,6 @@ import com.simplyrugby.utils.Search;
 import com.simplyrugby.utils.SimpleAlerts;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 
@@ -20,25 +19,44 @@ import java.util.Optional;
  */
 public class NotesController {
 
+    /**
+     * The model
+     */
     Model model;
+    /**
+     * The player id of the player who's skills are being displayed
+     */
     private int playerID;
+    /**
+     * The skill category being displayed
+     */
     private String currentSkillCategory;
+    /**
+     * List view containing the players skill notes
+     */
     @FXML
     private ListView lstNotes;
-    @FXML
-    private Button btnDeleteSelected;
-    @FXML
-    private Button btnAddNotes;
 
+    /**
+     * Sets the current model
+     *
+     * @param model The model
+     */
     public void setModel(Model model) {
         this.model = model;
     }
 
+    /**
+     * Initialising the view and fetching the players current skill notes
+     *
+     * @param playerID             The players id
+     * @param currentSkillCategory The skill category
+     */
     @FXML
     public void init(int playerID, String currentSkillCategory) {
         this.playerID = playerID;
         this.currentSkillCategory = currentSkillCategory;
-        addNotesToListBox(playerID, currentSkillCategory);
+        addNotesToListView(playerID, currentSkillCategory);
         if (lstNotes.getItems().size() <= 0) {
             try {
                 SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "No notes found", "There are no notes for " + Search.getPlayerFromID(playerID).getFullName() + " regarding the " + currentSkillCategory.toLowerCase()).showAndWait();
@@ -48,6 +66,9 @@ public class NotesController {
         }
     }
 
+    /**
+     * Prompts the user for a note to add to the current users skill category
+     */
     @FXML
     private void btnAddNotesClickHandler() {
         Optional<String> tempSquadName = null;
@@ -81,6 +102,9 @@ public class NotesController {
         }
     }
 
+    /**
+     * Deletes the selected note after the user confirms their action
+     */
     @FXML
     private void btnDeleteSelectedClickHandler() {
         String currentlySelectedNote;
@@ -114,12 +138,21 @@ public class NotesController {
         }
     }
 
+    /**
+     * Refreshes the notes being displayed for any new additions or deletions
+     */
     private void updateNotes() {
         lstNotes.getItems().clear();
-        addNotesToListBox(playerID, currentSkillCategory);
+        addNotesToListView(playerID, currentSkillCategory);
     }
 
-    private void addNotesToListBox(int playerID, String currentSkillCategory) {
+    /**
+     * Adds the current players notes to the list view
+     *
+     * @param playerID             The player id
+     * @param currentSkillCategory The skill category of the notes
+     */
+    private void addNotesToListView(int playerID, String currentSkillCategory) {
         for (Player player : model.getPlayers()) {
             if (player.getUID() == playerID) {
                 for (SkillCategory skillCategory : player.getSkills()) {
@@ -133,6 +166,12 @@ public class NotesController {
         }
     }
 
+    /**
+     * Checks for any duplicate notes
+     *
+     * @param noteText The note text to check for duplicates
+     * @return Returns true if there are duplicate notes. False if none are found
+     */
     private boolean checkForDuplicateNote(String noteText) {
         for (Player player : model.getPlayers()) {
             if (player.getUID() == playerID) {

@@ -21,19 +21,45 @@ import javafx.scene.layout.AnchorPane;
  */
 public class SkillDetailsController {
 
+    /**
+     * The model
+     */
     Model model;
+    /**
+     * The skill category being displayed
+     */
     private String skillCategoryName;
+    /**
+     * The player id of the player who's skills are being displayed
+     */
     private int playerID;
 
+    /**
+     * The table containing the skills and their ratings
+     */
     @FXML
     private TableView tblSkillData;
+    /**
+     * The pane of the view
+     */
     @FXML
     private AnchorPane pane;
 
+    /**
+     * Sets the current model
+     *
+     * @param model The model
+     */
     public void setModel(Model model) {
         this.model = model;
     }
 
+    /**
+     * Initialising the form and adding the skill data to the table and setting up edit event handlers
+     *
+     * @param skillCategoryName The skill category
+     * @param playerID          The player id
+     */
     public void init(String skillCategoryName, int playerID) {
         this.skillCategoryName = skillCategoryName;
         this.playerID = playerID;
@@ -96,6 +122,12 @@ public class SkillDetailsController {
         }
     }
 
+    /**
+     * Updating the skill name to the new one provided
+     *
+     * @param currentSkillName The current skill name
+     * @param newSkillName     The new skill name
+     */
     private void updateSkillName(String currentSkillName, String newSkillName) {
         for (Player player : model.getPlayers()) {
             if (player.getUID() == playerID) {
@@ -110,6 +142,13 @@ public class SkillDetailsController {
         }
     }
 
+    /**
+     * Updating the skill rating to the new one provided
+     *
+     * @param skillName          The skill name
+     * @param currentSkillRating The current skill rating
+     * @param newSkillRating     The new skill rating
+     */
     private void updateSkillRating(String skillName, String currentSkillRating, String newSkillRating) {
         for (Player player : model.getPlayers()) {
             if (player.getUID() == playerID) {
