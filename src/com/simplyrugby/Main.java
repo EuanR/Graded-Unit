@@ -1,7 +1,7 @@
 package com.simplyrugby;
 
 import com.simplyrugby.controllers.LoginController;
-import com.simplyrugby.modals.Modal;
+import com.simplyrugby.modals.Model;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,8 +32,8 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("views/Login.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         LoginController controller = fxmlLoader.getController();
-        Modal modal = new Modal();
-        controller.setModal(modal);
+        Model model = new Model();
+        controller.setModel(model);
         primaryStage.setTitle("Simply Rugby Login");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.setResizable(false);
