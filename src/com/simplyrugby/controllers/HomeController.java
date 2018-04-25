@@ -1,7 +1,7 @@
 package com.simplyrugby.controllers;
 
 import com.simplyrugby.exceptions.PlayerNotFoundException;
-import com.simplyrugby.modals.Model;
+import com.simplyrugby.models.Model;
 import com.simplyrugby.objects.ComboBoxItem;
 import com.simplyrugby.objects.Player;
 import com.simplyrugby.objects.Squad;
