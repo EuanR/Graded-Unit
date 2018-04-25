@@ -52,7 +52,7 @@ public class SkillsMenuController {
     /**
      * Initialising the view and adding the players skill categories to the combo box
      *
-     * @param playerID
+     * @param playerID  The player id
      */
     @FXML
     public void init(int playerID) {
