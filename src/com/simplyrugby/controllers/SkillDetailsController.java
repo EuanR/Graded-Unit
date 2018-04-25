@@ -6,6 +6,7 @@ import com.simplyrugby.objects.Player;
 import com.simplyrugby.objects.Skill;
 import com.simplyrugby.objects.SkillCategory;
 import com.simplyrugby.utils.Search;
+import com.simplyrugby.utils.SimpleAlerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -118,7 +119,7 @@ public class SkillDetailsController {
             }
             tblSkillData.setItems(dataToAdd);
         } catch (SkillCategoryNotFoundException e) {
-            e.printStackTrace();
+            SimpleAlerts.exceptionAlert("Unexpected error has occurred", e);
         }
     }
 
