@@ -1,7 +1,7 @@
 package com.simplyrugby.controllers;
 
 import com.simplyrugby.exceptions.PlayerNotFoundException;
-import com.simplyrugby.modals.Modal;
+import com.simplyrugby.modals.Model;
 import com.simplyrugby.objects.Player;
 import com.simplyrugby.objects.SkillCategory;
 import com.simplyrugby.utils.InputDialog;
@@ -9,7 +9,6 @@ import com.simplyrugby.utils.Search;
 import com.simplyrugby.utils.SimpleAlerts;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 
@@ -20,25 +19,44 @@ import java.util.Optional;
  */
 public class NotesController {
 
-    Modal modal;
+    /**
+     * The model
+     */
+    Model model;
+    /**
+     * The player id of the player who's skills are being displayed
+     */
     private int playerID;
+    /**
+     * The skill category being displayed
+     */
     private String currentSkillCategory;
+    /**
+     * List view containing the players skill notes
+     */
     @FXML
     private ListView lstNotes;
-    @FXML
-    private Button btnDeleteSelected;
-    @FXML
-    private Button btnAddNotes;
 
-    public void setModal(Modal modal) {
-        this.modal = modal;
+    /**
+     * Sets the current model
+     *
+     * @param model The model
+     */
+    public void setModel(Model model) {
+        this.model = model;
     }
 
+    /**
+     * Initialising the view and fetching the players current skill notes
+     *
+     * @param playerID             The players id
+     * @param currentSkillCategory The skill category
+     */
     @FXML
     public void init(int playerID, String currentSkillCategory) {
         this.playerID = playerID;
         this.currentSkillCategory = currentSkillCategory;
-        addNotesToListBox(playerID, currentSkillCategory);
+        addNotesToListView(playerID, currentSkillCategory);
         if (lstNotes.getItems().size() <= 0) {
             try {
                 SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "No notes found", "There are no notes for " + Search.getPlayerFromID(playerID).getFullName() + " regarding the " + currentSkillCategory.toLowerCase()).showAndWait();
@@ -48,6 +66,9 @@ public class NotesController {
         }
     }
 
+    /**
+     * Prompts the user for a note to add to the current users skill category
+     */
     @FXML
     private void btnAddNotesClickHandler() {
         Optional<String> tempSquadName = null;
@@ -67,12 +88,12 @@ public class NotesController {
                 }
                 return;
             }
-            for (Player player : modal.getPlayers()) {
+            for (Player player : model.getPlayers()) {
                 if (player.getUID() == playerID) {
                     for (SkillCategory skillCategory : player.getSkills()) {
                         if (skillCategory.getCategory().equals(currentSkillCategory)) {
                             skillCategory.addNotes(notes);
-                            modal.exportSystemData();
+                            model.exportSystemData();
                             updateNotes();
                         }
                     }
@@ -81,6 +102,9 @@ public class NotesController {
         }
     }
 
+    /**
+     * Deletes the selected note after the user confirms their action
+     */
     @FXML
     private void btnDeleteSelectedClickHandler() {
         String currentlySelectedNote;
@@ -94,14 +118,14 @@ public class NotesController {
         editOptions.setTitle("Delete Note");
         editOptions.showAndWait();
         if (editOptions.getResult() == ButtonType.OK) {
-            for (Player player : modal.getPlayers()) {
+            for (Player player : model.getPlayers()) {
                 if (player.getUID() == playerID) {
                     for (SkillCategory skillCategory : player.getSkills()) {
                         if (skillCategory.getCategory().equals(currentSkillCategory)) {
                             for (String notes : skillCategory.getNotes()) {
                                 if (notes.toLowerCase().equals(currentlySelectedNote.toLowerCase())) {
                                     skillCategory.getNotes().remove(indexToRemove);
-                                    modal.exportSystemData();
+                                    model.exportSystemData();
                                     updateNotes();
                                     return;
                                 }
@@ -114,13 +138,22 @@ public class NotesController {
         }
     }
 
+    /**
+     * Refreshes the notes being displayed for any new additions or deletions
+     */
     private void updateNotes() {
         lstNotes.getItems().clear();
-        addNotesToListBox(playerID, currentSkillCategory);
+        addNotesToListView(playerID, currentSkillCategory);
     }
 
-    private void addNotesToListBox(int playerID, String currentSkillCategory) {
-        for (Player player : modal.getPlayers()) {
+    /**
+     * Adds the current players notes to the list view
+     *
+     * @param playerID             The player id
+     * @param currentSkillCategory The skill category of the notes
+     */
+    private void addNotesToListView(int playerID, String currentSkillCategory) {
+        for (Player player : model.getPlayers()) {
             if (player.getUID() == playerID) {
                 for (SkillCategory skillCategory : player.getSkills()) {
                     if (skillCategory.getCategory().equals(currentSkillCategory)) {
@@ -133,8 +166,14 @@ public class NotesController {
         }
     }
 
+    /**
+     * Checks for any duplicate notes
+     *
+     * @param noteText The note text to check for duplicates
+     * @return Returns true if there are duplicate notes. False if none are found
+     */
     private boolean checkForDuplicateNote(String noteText) {
-        for (Player player : modal.getPlayers()) {
+        for (Player player : model.getPlayers()) {
             if (player.getUID() == playerID) {
                 for (SkillCategory skillCategory : player.getSkills()) {
                     if (skillCategory.getCategory().equals(currentSkillCategory)) {

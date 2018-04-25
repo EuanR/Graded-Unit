@@ -1,7 +1,7 @@
 package com.simplyrugby.controllers;
 
 import com.simplyrugby.exceptions.PlayerNotFoundException;
-import com.simplyrugby.modals.Modal;
+import com.simplyrugby.modals.Model;
 import com.simplyrugby.objects.ComboBoxItem;
 import com.simplyrugby.objects.Player;
 import com.simplyrugby.objects.Squad;
@@ -13,9 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -32,22 +30,36 @@ import java.util.Optional;
  */
 public class HomeController {
 
-    Modal modal;
+    /**
+     * The model
+     */
+    Model model;
+    /**
+     * The name of the squad being managed
+     */
     private String currentSquadName;
+    /**
+     * The pane from the current view
+     */
     @FXML
     private AnchorPane pane;
+    /**
+     * Combo box that stores the player names
+     */
     @FXML
     private ComboBox<ComboBoxItem> cmbPlayers;
-    @FXML
-    private Button btnViewSkills;
-    @FXML
-    private Label lblSelectPlayerFixed;
 
+    /**
+     * Initialising the view by adding the data for the current squad
+     *
+     * @param uid The ID of the coach that has logged in
+     * @return Returns false if the coach does not have any squads to coach
+     */
     @FXML
     public boolean init(int uid) {
         ArrayList<String> squadsCoaching = new ArrayList<>();
         String squadName = "";
-        for (Squad squad : modal.getSquads()) {
+        for (Squad squad : model.getSquads()) {
             if (squad.getCoachID() == uid) {
                 squadsCoaching.add(squad.getSquadName());
             }
@@ -72,7 +84,7 @@ public class HomeController {
             squadName = squadsCoaching.get(0);
         }
         currentSquadName = squadName;
-        for (Squad squad : modal.getSquads()) {
+        for (Squad squad : model.getSquads()) {
             if (squad.getSquadName().toLowerCase().equals(squadName.toLowerCase())) {
                 for (int playerID : squad.getPlayers()) {
                     try {
@@ -89,11 +101,20 @@ public class HomeController {
         return true;
     }
 
+    /**
+     * Updates the title of the scene to contain the current squad name
+     */
     public void updateSceneTitle() {
         Stage tempStage = (Stage) pane.getScene().getWindow();
         tempStage.setTitle("Simply Rugby Coaching Home - " + currentSquadName);
     }
 
+
+    /**
+     * Will display the skills of the selected player
+     *
+     * @param event Calling event
+     */
     @FXML
     private void btnViewSkillsClickHandler(javafx.event.ActionEvent event) {
         if (cmbPlayers.getSelectionModel().isEmpty()) {
@@ -104,7 +125,7 @@ public class HomeController {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/SkillsMenu.fxml"));
             Parent root = (Parent) fxmlLoader.load();
             SkillsMenuController controller = fxmlLoader.getController();
-            controller.setModal(this.modal);
+            controller.setModel(this.model);
             controller.init(cmbPlayers.getValue().getPlayerID());
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -121,14 +142,25 @@ public class HomeController {
         }
     }
 
-    public void setModal(Modal modal) {
-        this.modal = modal;
+    /**
+     * Sets the current model
+     *
+     * @param model The model
+     */
+    public void setModel(Model model) {
+        this.model = model;
     }
 
+    /**
+     * Checks if a squad exists based on its name
+     *
+     * @param squadName The name of the squad being checked for
+     * @return Returns true if the squad exists. Returns false if the squad does not exist.
+     */
     private boolean squadExists(String squadName) {
         int index = 0;
         int currentSquadIndex = 0;
-        ArrayList<Squad> squads = modal.getSquads();
+        ArrayList<Squad> squads = model.getSquads();
         for (Squad squad : squads) {
             if (squad.getSquadName().toLowerCase().equals(squadName.toLowerCase())) {
                 currentSquadIndex = index;

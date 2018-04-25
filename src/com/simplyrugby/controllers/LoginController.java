@@ -1,6 +1,6 @@
 package com.simplyrugby.controllers;
 
-import com.simplyrugby.modals.Modal;
+import com.simplyrugby.modals.Model;
 import com.simplyrugby.objects.Member;
 import com.simplyrugby.utils.Hash;
 import com.simplyrugby.utils.SimpleAlerts;
@@ -10,7 +10,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -25,18 +24,37 @@ import java.io.IOException;
  * @author Euan
  */
 public class LoginController {
-    Modal modal;
-    @FXML
-    private Button btnLogin;
+
+    /**
+     * The model
+     */
+    Model model;
+    /**
+     * The text field for the user id
+     */
     @FXML
     private TextField txtUserID;
+    /**
+     * The text field for the password
+     */
     @FXML
     private PasswordField txtPassword;
 
-    public void setModal(Modal modal) {
-        this.modal = modal;
+    /**
+     * Sets the current model
+     *
+     * @param model The model
+     */
+    public void setModel(Model model) {
+        this.model = model;
     }
 
+
+    /**
+     * Processes a login attempt and displays the coaching home if the login is valid
+     *
+     * @param event Calling event
+     */
     @FXML
     private void btnLoginClickHandler(javafx.event.ActionEvent event) {
         if (validateLogin(txtUserID.getText(), txtPassword.getText())) {
@@ -44,7 +62,7 @@ public class LoginController {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/Home.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 HomeController controller = fxmlLoader.getController();
-                controller.setModal(this.modal);
+                controller.setModel(this.model);
                 if (!controller.init(Integer.parseInt(txtUserID.getText()))) {
                     return;
                 }
@@ -69,6 +87,13 @@ public class LoginController {
         }
     }
 
+    /**
+     * Checks if a id and password combination are valid
+     *
+     * @param UID      The id from the login attempt
+     * @param password The password from the login attempt
+     * @return Returns true if the login id and password combination is valid
+     */
     private boolean validateLogin(String UID, String password) {
         int ID;
         try {
@@ -76,7 +101,7 @@ public class LoginController {
         } catch (NumberFormatException e) {
             return false;
         }
-        for (Member coach : modal.getCoaches()) {
+        for (Member coach : model.getCoaches()) {
             if (coach.getUID() == ID && coach.getPassword().equals(Hash.getSha512(password))) {
                 return true;
             }

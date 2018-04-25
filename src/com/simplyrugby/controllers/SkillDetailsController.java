@@ -1,7 +1,7 @@
 package com.simplyrugby.controllers;
 
 import com.simplyrugby.exceptions.SkillCategoryNotFoundException;
-import com.simplyrugby.modals.Modal;
+import com.simplyrugby.modals.Model;
 import com.simplyrugby.objects.Player;
 import com.simplyrugby.objects.Skill;
 import com.simplyrugby.objects.SkillCategory;
@@ -21,19 +21,45 @@ import javafx.scene.layout.AnchorPane;
  */
 public class SkillDetailsController {
 
-    Modal modal;
+    /**
+     * The model
+     */
+    Model model;
+    /**
+     * The skill category being displayed
+     */
     private String skillCategoryName;
+    /**
+     * The player id of the player who's skills are being displayed
+     */
     private int playerID;
 
+    /**
+     * The table containing the skills and their ratings
+     */
     @FXML
     private TableView tblSkillData;
+    /**
+     * The pane of the view
+     */
     @FXML
     private AnchorPane pane;
 
-    public void setModal(Modal modal) {
-        this.modal = modal;
+    /**
+     * Sets the current model
+     *
+     * @param model The model
+     */
+    public void setModel(Model model) {
+        this.model = model;
     }
 
+    /**
+     * Initialising the form and adding the skill data to the table and setting up edit event handlers
+     *
+     * @param skillCategoryName The skill category
+     * @param playerID          The player id
+     */
     public void init(String skillCategoryName, int playerID) {
         this.skillCategoryName = skillCategoryName;
         this.playerID = playerID;
@@ -50,7 +76,7 @@ public class SkillDetailsController {
                     return;
                 }
                 updateSkillName(cellEditEvent.getOldValue().toString(), cellEditEvent.getNewValue().toString());
-                modal.exportSystemData();
+                model.exportSystemData();
                 ((Skill) cellEditEvent.getTableView().getItems().get(cellEditEvent.getTablePosition().getRow())).setSkillName(cellEditEvent.getNewValue().toString());
                 tblSkillData.refresh();
             }
@@ -78,7 +104,7 @@ public class SkillDetailsController {
                 }
                 Skill tempSkill = (Skill) cellEditEvent.getTableView().getItems().get(cellEditEvent.getTablePosition().getRow());
                 updateSkillRating(tempSkill.getSkillName(), cellEditEvent.getOldValue().toString(), cellEditEvent.getNewValue().toString());
-                modal.exportSystemData();
+                model.exportSystemData();
                 ((Skill) cellEditEvent.getTableView().getItems().get(cellEditEvent.getTablePosition().getRow())).setSkillRating(cellEditEvent.getNewValue().toString());
                 tblSkillData.refresh();
 
@@ -96,8 +122,14 @@ public class SkillDetailsController {
         }
     }
 
+    /**
+     * Updating the skill name to the new one provided
+     *
+     * @param currentSkillName The current skill name
+     * @param newSkillName     The new skill name
+     */
     private void updateSkillName(String currentSkillName, String newSkillName) {
-        for (Player player : modal.getPlayers()) {
+        for (Player player : model.getPlayers()) {
             if (player.getUID() == playerID) {
                 for (SkillCategory skillCategory : player.getSkills()) {
                     for (Skill skill : skillCategory.getSkills()) {
@@ -110,8 +142,15 @@ public class SkillDetailsController {
         }
     }
 
+    /**
+     * Updating the skill rating to the new one provided
+     *
+     * @param skillName          The skill name
+     * @param currentSkillRating The current skill rating
+     * @param newSkillRating     The new skill rating
+     */
     private void updateSkillRating(String skillName, String currentSkillRating, String newSkillRating) {
-        for (Player player : modal.getPlayers()) {
+        for (Player player : model.getPlayers()) {
             if (player.getUID() == playerID) {
                 for (SkillCategory skillCategory : player.getSkills()) {
                     for (Skill skill : skillCategory.getSkills()) {
