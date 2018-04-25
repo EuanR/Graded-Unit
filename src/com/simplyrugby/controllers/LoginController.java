@@ -1,6 +1,6 @@
 package com.simplyrugby.controllers;
 
-import com.simplyrugby.modals.Model;
+import com.simplyrugby.models.Model;
 import com.simplyrugby.objects.Member;
 import com.simplyrugby.utils.Hash;
 import com.simplyrugby.utils.SimpleAlerts;

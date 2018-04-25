@@ -1,4 +1,4 @@
-package com.simplyrugby.modals;
+package com.simplyrugby.models;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

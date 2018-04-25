@@ -1,7 +1,7 @@
 package com.simplyrugby;
 
 import com.simplyrugby.controllers.LoginController;
-import com.simplyrugby.modals.Model;
+import com.simplyrugby.models.Model;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

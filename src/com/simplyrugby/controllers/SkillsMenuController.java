@@ -1,7 +1,7 @@
 package com.simplyrugby.controllers;
 
 import com.simplyrugby.exceptions.PlayerNotFoundException;
-import com.simplyrugby.modals.Model;
+import com.simplyrugby.models.Model;
 import com.simplyrugby.objects.ComboBoxItem;
 import com.simplyrugby.objects.SkillCategory;
 import com.simplyrugby.utils.Search;
@@ -52,7 +52,7 @@ public class SkillsMenuController {
     /**
      * Initialising the view and adding the players skill categories to the combo box
      *
-     * @param playerID
+     * @param playerID  The player id
      */
     @FXML
     public void init(int playerID) {
