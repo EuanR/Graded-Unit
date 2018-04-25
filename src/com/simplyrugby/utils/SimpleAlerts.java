@@ -1,6 +1,10 @@
 package com.simplyrugby.utils;
 
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 
 /**
  * @author Euan Riggans
@@ -25,6 +29,40 @@ public final class SimpleAlerts {
         alert.setTitle(alertTitle);
         alert.setHeaderText(alertTitle);
         alert.setContentText(alertText);
+        return alert;
+    }
+
+    /**
+     * Creates a javafx alert which contains a stacktrace to display the user
+     * <pre>
+     *     {@code
+     *      try {
+     *          //Your code
+     *      } catch (Exception e) {
+     *          SimpleAlerts.exceptionAlert("An unexpected error has occurred", e).showAndWait();
+     *      }
+     *     }
+     * </pre>
+     *
+     * @param text The alert text
+     * @param e    The exception
+     * @return Returns an instance of a javafx alert ready to be shown
+     */
+    public static Alert exceptionAlert(String text, Exception e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Unexpected error");
+        alert.setHeaderText("An unexpected error has occurred");
+        alert.setContentText(text);
+        String exceptionText = ExceptionUtils.getStackTrace(e);
+        TextArea textArea = new TextArea();
+        textArea.setText(exceptionText);
+        textArea.setEditable(false);
+        textArea.setWrapText(true);
+        GridPane.setVgrow(textArea, Priority.ALWAYS);
+        GridPane.setHgrow(textArea, Priority.ALWAYS);
+        GridPane expContent = new GridPane();
+        expContent.add(textArea, 0, 1);
+        alert.getDialogPane().setExpandableContent(expContent);
         return alert;
     }
 

@@ -52,7 +52,7 @@ public class SkillsMenuController {
     /**
      * Initialising the view and adding the players skill categories to the combo box
      *
-     * @param playerID  The player id
+     * @param playerID  Player id of the player who's skills are being displayed
      */
     @FXML
     public void init(int playerID) {
@@ -63,7 +63,7 @@ public class SkillsMenuController {
                 cmbSkillCategories.getItems().add(comboBoxItem);
             }
         } catch (PlayerNotFoundException e) {
-            e.printStackTrace();
+            SimpleAlerts.exceptionAlert("Unexpected error has occurred", e);
         }
     }
 
@@ -123,7 +123,7 @@ public class SkillsMenuController {
             try {
                 stage.setTitle("Notes for - " + Search.getPlayerFromID(playerID).getFullName() + " - " + cmbSkillCategories.getValue().getItemText());
             } catch (PlayerNotFoundException e) {
-                e.printStackTrace();
+                SimpleAlerts.exceptionAlert("Unexpected error has occurred", e);
             }
             stage.setScene(new Scene(root));
             stage.setResizable(false);
