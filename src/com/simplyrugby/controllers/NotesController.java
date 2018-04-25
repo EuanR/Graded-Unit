@@ -61,7 +61,7 @@ public class NotesController {
             try {
                 SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "No notes found", "There are no notes for " + Search.getPlayerFromID(playerID).getFullName() + " regarding the " + currentSkillCategory.toLowerCase()).showAndWait();
             } catch (PlayerNotFoundException e) {
-                e.printStackTrace();
+                SimpleAlerts.exceptionAlert("Unable to find a player with that ID", e);
             }
         }
     }
@@ -76,7 +76,7 @@ public class NotesController {
         try {
             tempSquadName = InputDialog.textInput("Please enter the note you wish to add", "Please enter the note you wish to add for " + Search.getPlayerFromID(playerID).getFullName() + " regarding " + currentSkillCategory.toLowerCase() + " skill", false, false).showAndWait();
         } catch (PlayerNotFoundException e) {
-            e.printStackTrace();
+            SimpleAlerts.exceptionAlert("Unexpected error has occurred", e);
         }
         if (tempSquadName.isPresent()) {
             notes = tempSquadName.get();
@@ -84,7 +84,7 @@ public class NotesController {
                 try {
                     SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "Note already exists", "That note already exists for " + Search.getPlayerFromID(playerID).getFullName()).showAndWait();
                 } catch (PlayerNotFoundException e) {
-                    e.printStackTrace();
+                    SimpleAlerts.exceptionAlert("Unexpected error has occurred", e);
                 }
                 return;
             }
