@@ -114,10 +114,8 @@ public class NotesController {
             return;
         }
         currentlySelectedNote = lstNotes.getSelectionModel().getSelectedItem().toString();
-        Alert editOptions = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you wish to delete the following note: " + currentlySelectedNote.toLowerCase() + "?", ButtonType.OK, ButtonType.CANCEL);
-        editOptions.setTitle("Delete Note");
-        editOptions.showAndWait();
-        if (editOptions.getResult() == ButtonType.OK) {
+        Optional<ButtonType> confirmation = InputDialog.confirmationDialog("Are you sure you wish to delete the following note: " + currentlySelectedNote.toLowerCase() + "?", false).showAndWait();
+        if (confirmation.get() == ButtonType.OK) {
             for (Player player : model.getPlayers()) {
                 if (player.getUID() == playerID) {
                     for (SkillCategory skillCategory : player.getSkills()) {
