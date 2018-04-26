@@ -1,6 +1,7 @@
 package com.simplyrugby.utils;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
@@ -36,6 +37,25 @@ public final class InputDialog {
         textInputDialog.setHeaderText(textBody);
         textInputDialog.setTitle(title);
         return textInputDialog;
+    }
+
+    /**
+     * Creates a confirmation alert which can be easily displayed to the user to gather input
+     * <pre>
+     *     {@code
+     *      Optional<ButtonType> confirmation = InputDialog.confirmationDialog("Are you sure you wish to delete the following note: " + currentlySelectedNote.toLowerCase() + "?", false).showAndWait();
+     *     }
+     * </pre>
+     *
+     * @param textBody  The main body of text on the input dialog
+     * @param resizable Will the input dialog be resizable
+     * @return An pre-made confirmation alert ready to be shown and gather user input
+     */
+    public static Alert confirmationDialog(String textBody, boolean resizable) {
+        Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmation.setContentText(textBody);
+        confirmation.setTitle("Delete Note");
+        return confirmation;
     }
 
 }
