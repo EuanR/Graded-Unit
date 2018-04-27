@@ -54,6 +54,7 @@ public final class InputDialog {
     public static Alert confirmationDialog(String textBody, boolean resizable) {
         Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
         confirmation.setContentText(textBody);
+        confirmation.setResizable(resizable);
         confirmation.setTitle("Delete Note");
         return confirmation;
     }
