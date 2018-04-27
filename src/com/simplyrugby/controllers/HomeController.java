@@ -154,6 +154,8 @@ public class HomeController {
     /**
      * Checks if a squad exists based on its name
      *
+     * @// TODO: 27/04/2018 Move to search utils 
+     *
      * @param squadName The name of the squad being checked for
      * @return Returns true if the squad exists. Returns false if the squad does not exist.
      */
