@@ -42,7 +42,7 @@ public final class Search {
             Reader reader = new FileReader("data/players.json");
             tempPlayers = new Gson().fromJson(reader, playerType);
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            SimpleAlerts.exceptionAlert("No player data was found", e);
         }
         for (Player player : tempPlayers) {
             if (player.getUID() == playerID) {
@@ -74,7 +74,7 @@ public final class Search {
             Reader reader = new FileReader("data/players.json");
             tempPlayers = new Gson().fromJson(reader, playerType);
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            SimpleAlerts.exceptionAlert("No players data was found", e);
         }
         for (Player player : tempPlayers) {
             if (player.getUID() == playerID) {
@@ -110,7 +110,7 @@ public final class Search {
             Reader reader = new FileReader("data/squads.json");
             squads = new Gson().fromJson(reader, playerType);
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            SimpleAlerts.exceptionAlert("No squads data was found", e);
         }
         for (Squad squad : squads) {
             if (squad.getSquadName().toLowerCase().equals(squadName.toLowerCase())) {
