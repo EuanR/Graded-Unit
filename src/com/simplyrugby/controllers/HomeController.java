@@ -74,7 +74,7 @@ public class HomeController {
             if (tempSquadName.isPresent()) {
                 squadName = tempSquadName.get();
             }
-            while (!squadExists(squadName)) {
+            while (!Search.squadExists(squadName)) {
                 tempSquadName = InputDialog.textInput("Please enter the name of the squad you wish to manage", "Please enter the name of the squad you wish to manage", false, true).showAndWait();
                 if (tempSquadName.isPresent()) {
                     squadName = tempSquadName.get();
@@ -149,28 +149,6 @@ public class HomeController {
      */
     public void setModel(Model model) {
         this.model = model;
-    }
-
-    /**
-     * Checks if a squad exists based on its name
-     *
-     * @// TODO: 27/04/2018 Move to search utils 
-     *
-     * @param squadName The name of the squad being checked for
-     * @return Returns true if the squad exists. Returns false if the squad does not exist.
-     */
-    private boolean squadExists(String squadName) {
-        int index = 0;
-        int currentSquadIndex = 0;
-        ArrayList<Squad> squads = model.getSquads();
-        for (Squad squad : squads) {
-            if (squad.getSquadName().toLowerCase().equals(squadName.toLowerCase())) {
-                currentSquadIndex = index;
-                return true;
-            }
-            index++;
-        }
-        return false;
     }
 
 }
