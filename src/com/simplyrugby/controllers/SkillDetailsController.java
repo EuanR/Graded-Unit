@@ -100,6 +100,7 @@ public class SkillDetailsController {
                         return;
                     }
                 } catch (Exception e) {
+                    SimpleAlerts.exceptionAlert("Unexpected error occurred while updating skill data", e).showAndWait();
                     tblSkillData.refresh();
                     return;
                 }
@@ -119,7 +120,7 @@ public class SkillDetailsController {
             }
             tblSkillData.setItems(dataToAdd);
         } catch (SkillCategoryNotFoundException e) {
-            SimpleAlerts.exceptionAlert("Unexpected error has occurred", e);
+            SimpleAlerts.exceptionAlert("Unexpected error has occurred", e).showAndWait();
         }
     }
 

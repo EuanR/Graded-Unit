@@ -78,7 +78,7 @@ public class LoginController {
                 stage.show();
                 controller.updateSceneTitle();
             } catch (IOException e) {
-                e.printStackTrace();
+                SimpleAlerts.exceptionAlert("Unexpected error occurred while displaying the home page", e).showAndWait();
             }
             ((Node) (event.getSource())).getScene().getWindow().hide();
         } else {
@@ -98,6 +98,7 @@ public class LoginController {
         try {
             ID = Integer.parseInt(UID);
         } catch (NumberFormatException e) {
+            SimpleAlerts.exceptionAlert("Invalid ID provided", e).showAndWait();
             return false;
         }
         for (Member coach : model.getCoaches()) {

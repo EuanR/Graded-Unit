@@ -88,11 +88,11 @@ public class HomeController {
             if (squad.getSquadName().toLowerCase().equals(squadName.toLowerCase())) {
                 for (int playerID : squad.getPlayers()) {
                     try {
-                        Player tempPlayer = Search.getPlayerFromID(playerID);
+                        Player tempPlayer = Search.getPlayerFromID(playerID + 55);
                         ComboBoxItem comboBoxItem = new ComboBoxItem(tempPlayer.getFullName(), tempPlayer.getUID());
                         cmbPlayers.getItems().add(comboBoxItem);
                     } catch (PlayerNotFoundException e) {
-                        SimpleAlerts.simpleAlert(Alert.AlertType.ERROR, "Player not found", "A player with that ID does not exist").showAndWait();
+                        SimpleAlerts.exceptionAlert("There was an error finding that player", e).showAndWait();
                     }
                 }
                 break;
@@ -138,7 +138,7 @@ public class HomeController {
             stage.getIcons().add(icon);
             stage.showAndWait();
         } catch (IOException e) {
-            e.printStackTrace();
+            SimpleAlerts.exceptionAlert("Unexpected error has occurred while attempting to display the skill details of that player", e).showAndWait();
         }
     }
 

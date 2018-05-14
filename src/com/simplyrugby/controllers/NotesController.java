@@ -76,7 +76,7 @@ public class NotesController {
         try {
             tempSquadName = InputDialog.textInput("Please enter the note you wish to add", "Please enter the note you wish to add for " + Search.getPlayerFromID(playerID).getFullName() + " regarding " + currentSkillCategory.toLowerCase() + " skill", false, false).showAndWait();
         } catch (PlayerNotFoundException e) {
-            SimpleAlerts.exceptionAlert("Unexpected error has occurred", e);
+            SimpleAlerts.exceptionAlert("Unexpected error has occurred when attempting to add a note for that player", e);
         }
         if (tempSquadName.isPresent()) {
             notes = tempSquadName.get();
