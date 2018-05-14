@@ -28,7 +28,7 @@ public class LoginController {
     /**
      * The model
      */
-    Model model;
+    private Model model;
     /**
      * The text field for the user id
      */
@@ -60,7 +60,7 @@ public class LoginController {
         if (validateLogin(txtUserID.getText(), txtPassword.getText())) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/Home.fxml"));
-                Parent root = (Parent) fxmlLoader.load();
+                Parent root = fxmlLoader.load();
                 HomeController controller = fxmlLoader.getController();
                 controller.setModel(this.model);
                 if (!controller.init(Integer.parseInt(txtUserID.getText()))) {
@@ -78,12 +78,11 @@ public class LoginController {
                 stage.show();
                 controller.updateSceneTitle();
             } catch (IOException e) {
-                e.printStackTrace();
+                SimpleAlerts.exceptionAlert("Unexpected error occurred while displaying the home page", e).showAndWait();
             }
             ((Node) (event.getSource())).getScene().getWindow().hide();
         } else {
             SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "Invalid login credentials", "You have provided invalid login credentials. Either your user id or password is incorrect.").showAndWait();
-            return;
         }
     }
 
@@ -99,6 +98,7 @@ public class LoginController {
         try {
             ID = Integer.parseInt(UID);
         } catch (NumberFormatException e) {
+            SimpleAlerts.exceptionAlert("Invalid ID provided", e).showAndWait();
             return false;
         }
         for (Member coach : model.getCoaches()) {

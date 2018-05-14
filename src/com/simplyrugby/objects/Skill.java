@@ -36,6 +36,7 @@ public class Skill {
 
     /**
      * Skill rating setter
+     *
      * @param skillRating Skill rating
      */
     public void setSkillRating(String skillRating) {
@@ -44,6 +45,7 @@ public class Skill {
 
     /**
      * Skill name getter
+     *
      * @return Skill name getter
      */
     public String getSkillName() {
@@ -52,6 +54,7 @@ public class Skill {
 
     /**
      * Skill name setter
+     *
      * @param skillName Skill name
      */
     public void setSkillName(String skillName) {

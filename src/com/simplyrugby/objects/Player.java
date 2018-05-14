@@ -68,6 +68,7 @@ public class Player extends Member {
 
     /**
      * Gets all players skill categories
+     *
      * @return Returns a list of the players skill categories
      */
     public ArrayList<SkillCategory> getSkills() {
@@ -76,6 +77,7 @@ public class Player extends Member {
 
     /**
      * Skill category list setter
+     *
      * @param skills Skill category list
      */
     public void setSkills(ArrayList<SkillCategory> skills) {
@@ -99,6 +101,7 @@ public class Player extends Member {
 
     /**
      * Players doctor getter
+     *
      * @return Players doctor
      */
     public String getDoctor() {
@@ -107,6 +110,7 @@ public class Player extends Member {
 
     /**
      * Players doctor setter
+     *
      * @param doctor Players doctor
      */
     public void setDoctor(String doctor) {
@@ -115,6 +119,7 @@ public class Player extends Member {
 
     /**
      * Players doctor telephone number getter
+     *
      * @return Players doctor telephone number
      */
     public String getDoctorTelephone() {
@@ -123,6 +128,7 @@ public class Player extends Member {
 
     /**
      * Players doctor telephone number setter
+     *
      * @param doctorTelephone Players doctor telephone number
      */
     public void setDoctorTelephone(String doctorTelephone) {
@@ -131,6 +137,7 @@ public class Player extends Member {
 
     /**
      * Players position getter
+     *
      * @return Players position
      */
     public String getPosition() {
@@ -139,6 +146,7 @@ public class Player extends Member {
 
     /**
      * Players position setter
+     *
      * @param position Players position
      */
     public void setPosition(String position) {
@@ -147,6 +155,7 @@ public class Player extends Member {
 
     /**
      * Players health issues getter
+     *
      * @return Players health issues
      */
     public ArrayList<String> getHealthIssues() {
@@ -155,6 +164,7 @@ public class Player extends Member {
 
     /**
      * Players health issues setter
+     *
      * @param healthIssues Players health issues
      */
     public void setHealthIssues(ArrayList<String> healthIssues) {

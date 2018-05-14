@@ -96,7 +96,8 @@ public class Member {
 
     /**
      * UID setter
-     * @param UID   The members UID
+     *
+     * @param UID The members UID
      */
     public void setUID(int UID) {
         this.UID = UID;
@@ -104,6 +105,7 @@ public class Member {
 
     /**
      * First name getter
+     *
      * @return Members first name
      */
     public String getFirstname() {
@@ -112,6 +114,7 @@ public class Member {
 
     /**
      * First name setter
+     *
      * @param firstname Members first name
      */
     public void setFirstname(String firstname) {
@@ -120,6 +123,7 @@ public class Member {
 
     /**
      * Surname getter
+     *
      * @return Members surname
      */
     public String getSurname() {
@@ -128,6 +132,7 @@ public class Member {
 
     /**
      * Surname setter
+     *
      * @param surname Members surname
      */
     public void setSurname(String surname) {
@@ -136,6 +141,7 @@ public class Member {
 
     /**
      * Address getter
+     *
      * @return Members address
      */
     public String getAddress() {
@@ -144,6 +150,7 @@ public class Member {
 
     /**
      * Address setter
+     *
      * @param address Members address
      */
     public void setAddress(String address) {
@@ -152,6 +159,7 @@ public class Member {
 
     /**
      * Postcode getter
+     *
      * @return Members postcode
      */
     public String getPostcode() {
@@ -160,6 +168,7 @@ public class Member {
 
     /**
      * Postcode setter
+     *
      * @param postcode Members postcode
      */
     public void setPostcode(String postcode) {
@@ -168,6 +177,7 @@ public class Member {
 
     /**
      * SRU number getter
+     *
      * @return Members SRU number
      */
     public String getSRUNumber() {
@@ -176,6 +186,7 @@ public class Member {
 
     /**
      * SRU number setter
+     *
      * @param SRUNumber Members SRU number
      */
     public void setSRUNumber(String SRUNumber) {
@@ -184,6 +195,7 @@ public class Member {
 
     /**
      * Date of birth getter
+     *
      * @return Members date of birth
      */
     public LocalDate getDateOfBirth() {
@@ -192,6 +204,7 @@ public class Member {
 
     /**
      * Date of birth setter
+     *
      * @param dateOfBirth Members date of birth
      */
     public void setDateOfBirth(LocalDate dateOfBirth) {
@@ -200,6 +213,7 @@ public class Member {
 
     /**
      * Telephone number getter
+     *
      * @return Members telephone number
      */
     public String getTelephoneNumber() {
@@ -208,6 +222,7 @@ public class Member {
 
     /**
      * Telephone number setter
+     *
      * @param telephoneNumber Members telephone number
      */
     public void setTelephoneNumber(String telephoneNumber) {
@@ -216,6 +231,7 @@ public class Member {
 
     /**
      * Mobile number getter
+     *
      * @return Members mobile number
      */
     public String getMobileNumber() {
@@ -224,6 +240,7 @@ public class Member {
 
     /**
      * Mobile number setter
+     *
      * @param mobileNumber Members mobile number
      */
     public void setMobileNumber(String mobileNumber) {
@@ -232,6 +249,7 @@ public class Member {
 
     /**
      * Email getter
+     *
      * @return Members email
      */
     public String getEmail() {
@@ -240,6 +258,7 @@ public class Member {
 
     /**
      * Email setter
+     *
      * @param email Members email
      */
     public void setEmail(String email) {
@@ -248,6 +267,7 @@ public class Member {
 
     /**
      * Full name getter
+     *
      * @return Members full name
      */
     public String getFullName() {
@@ -256,6 +276,7 @@ public class Member {
 
     /**
      * Password getter
+     *
      * @return Members password
      */
     public String getPassword() {
@@ -264,6 +285,7 @@ public class Member {
 
     /**
      * Password setter
+     *
      * @param password Members password
      */
     public void setPassword(String password) {

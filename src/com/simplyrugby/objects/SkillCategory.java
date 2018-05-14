@@ -44,6 +44,7 @@ public class SkillCategory {
 
     /**
      * Notes getter
+     *
      * @return Players notes
      */
     public ArrayList<String> getNotes() {
@@ -52,6 +53,7 @@ public class SkillCategory {
 
     /**
      * Add a new note
+     *
      * @param notes Players notes
      */
     public void addNotes(String notes) {
@@ -60,6 +62,7 @@ public class SkillCategory {
 
     /**
      * Skills getter
+     *
      * @return The skills from this category
      */
     public ArrayList<Skill> getSkills() {
@@ -68,6 +71,7 @@ public class SkillCategory {
 
     /**
      * Skill category name getter
+     *
      * @return Skill category name
      */
     public String getCategory() {

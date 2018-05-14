@@ -33,7 +33,7 @@ public class HomeController {
     /**
      * The model
      */
-    Model model;
+    private Model model;
     /**
      * The name of the squad being managed
      */
@@ -92,7 +92,7 @@ public class HomeController {
                         ComboBoxItem comboBoxItem = new ComboBoxItem(tempPlayer.getFullName(), tempPlayer.getUID());
                         cmbPlayers.getItems().add(comboBoxItem);
                     } catch (PlayerNotFoundException e) {
-                        SimpleAlerts.simpleAlert(Alert.AlertType.ERROR, "Player not found", "A player with that ID does not exist").showAndWait();
+                        SimpleAlerts.exceptionAlert("There was an error finding that player", e).showAndWait();
                     }
                 }
                 break;
@@ -104,7 +104,7 @@ public class HomeController {
     /**
      * Updates the title of the scene to contain the current squad name
      */
-    public void updateSceneTitle() {
+    protected void updateSceneTitle() {
         Stage tempStage = (Stage) pane.getScene().getWindow();
         tempStage.setTitle("Simply Rugby Coaching Home - " + currentSquadName);
     }
@@ -123,7 +123,7 @@ public class HomeController {
         }
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/SkillsMenu.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
+            Parent root = fxmlLoader.load();
             SkillsMenuController controller = fxmlLoader.getController();
             controller.setModel(this.model);
             controller.init(cmbPlayers.getValue().getPlayerID());
@@ -138,7 +138,7 @@ public class HomeController {
             stage.getIcons().add(icon);
             stage.showAndWait();
         } catch (IOException e) {
-            e.printStackTrace();
+            SimpleAlerts.exceptionAlert("Unexpected error has occurred while attempting to display the skill details of that player", e).showAndWait();
         }
     }
 

@@ -11,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -25,7 +26,7 @@ public class SkillDetailsController {
     /**
      * The model
      */
-    Model model;
+    private Model model;
     /**
      * The skill category being displayed
      */
@@ -97,9 +98,11 @@ public class SkillDetailsController {
                     int tempNewRating = Integer.parseInt(cellEditEvent.getNewValue().toString());
                     if (tempNewRating > 10 || tempNewRating < 0) {
                         tblSkillData.refresh();
+                        SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "Invalid rating", "A skill rating must be between 0 and 10").showAndWait();
                         return;
                     }
                 } catch (Exception e) {
+                    SimpleAlerts.exceptionAlert("Unexpected error occurred while updating skill data", e).showAndWait();
                     tblSkillData.refresh();
                     return;
                 }
@@ -119,7 +122,7 @@ public class SkillDetailsController {
             }
             tblSkillData.setItems(dataToAdd);
         } catch (SkillCategoryNotFoundException e) {
-            SimpleAlerts.exceptionAlert("Unexpected error has occurred", e);
+            SimpleAlerts.exceptionAlert("Unexpected error has occurred", e).showAndWait();
         }
     }
 

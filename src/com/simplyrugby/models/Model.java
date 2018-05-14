@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.simplyrugby.objects.*;
+import com.simplyrugby.utils.SimpleAlerts;
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -43,7 +44,7 @@ public class Model {
     /**
      * Generates default system data
      */
-    public void rebuildSystemData() {
+    private void rebuildSystemData() {
         ArrayList<String> healthIssues = new ArrayList<String>();
         healthIssues.add("Hayfever");
         players.add(new SeniorPlayer(
@@ -260,7 +261,7 @@ public class Model {
     /**
      * Imports system data from existing Json files using Gson
      */
-    public void importSystemData() {
+    private void importSystemData() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Type playerType = new TypeToken<ArrayList<Player>>() {
         }.getType();
@@ -270,21 +271,21 @@ public class Model {
             //players = gson.fromJson(reader, new TypeToken<ArrayList<Player>>(){}.getType());
             players = new Gson().fromJson(reader, playerType);
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            SimpleAlerts.exceptionAlert("Players data not found on disk", e).showAndWait();
         }
         try {
             Reader reader = new FileReader("data/squads.json");
             squads = gson.fromJson(reader, new TypeToken<ArrayList<Squad>>() {
             }.getType());
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            SimpleAlerts.exceptionAlert("Squads data not found on disk", e).showAndWait();
         }
         try {
             Reader reader = new FileReader("data/coaches.json");
             coaches = gson.fromJson(reader, new TypeToken<ArrayList<Member>>() {
             }.getType());
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            SimpleAlerts.exceptionAlert("Coaches data not found on disk", e).showAndWait();
         }
     }
 
@@ -302,19 +303,19 @@ public class Model {
         try (Writer writer = new FileWriter("data/players.json")) {
             gson.toJson(players, writer);
         } catch (IOException e) {
-            System.out.println("Error writing json to file");
+            SimpleAlerts.exceptionAlert("Error while writing player data to disk", e).showAndWait();
         }
 
         try (Writer writer = new FileWriter("data/squads.json")) {
             gson.toJson(squads, writer);
         } catch (IOException e) {
-            System.out.println("Error writing json to file");
+            SimpleAlerts.exceptionAlert("Error while writing squad data to disk", e).showAndWait();
         }
 
         try (Writer writer = new FileWriter("data/coaches.json")) {
             gson.toJson(coaches, writer);
         } catch (IOException e) {
-            System.out.println("Error writing json to file");
+            SimpleAlerts.exceptionAlert("Error while writing coach data to disk", e).showAndWait();
         }
     }
 
@@ -323,7 +324,7 @@ public class Model {
      *
      * @return Returns true if there is data in local files or false if there is none
      */
-    public boolean checkForSystemData() {
+    private boolean checkForSystemData() {
         File playersData = new File("data/players.json");
         File squadsData = new File("data/squads.json");
         File coachData = new File("data/coaches.json");
@@ -336,6 +337,7 @@ public class Model {
 
     /**
      * Returns all players in the system
+     *
      * @return Arraylist of all of the players in the system
      */
     public ArrayList<Player> getPlayers() {
@@ -344,6 +346,7 @@ public class Model {
 
     /**
      * Returns all squads in the system
+     *
      * @return Arraylist of all of the squads in the system
      */
     public ArrayList<Squad> getSquads() {
@@ -352,6 +355,7 @@ public class Model {
 
     /**
      * Returns all players in the system
+     *
      * @return Arraylist of all of the squads in the system
      */
     public ArrayList<Member> getCoaches() {

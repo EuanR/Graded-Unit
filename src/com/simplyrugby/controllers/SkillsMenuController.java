@@ -28,7 +28,7 @@ public class SkillsMenuController {
     /**
      * The model
      */
-    Model model;
+    private Model model;
 
     /**
      * Combo box that stores the skill categories
@@ -52,7 +52,7 @@ public class SkillsMenuController {
     /**
      * Initialising the view and adding the players skill categories to the combo box
      *
-     * @param playerID  Player id of the player who's skills are being displayed
+     * @param playerID Player id of the player who's skills are being displayed
      */
     @FXML
     public void init(int playerID) {
@@ -63,7 +63,7 @@ public class SkillsMenuController {
                 cmbSkillCategories.getItems().add(comboBoxItem);
             }
         } catch (PlayerNotFoundException e) {
-            SimpleAlerts.exceptionAlert("Unexpected error has occurred", e);
+            SimpleAlerts.exceptionAlert("Unexpected error occurred when fetch skill details for that player", e);
         }
     }
 
@@ -80,8 +80,8 @@ public class SkillsMenuController {
         }
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/SkillDetails.fxml"));
-            Parent root = null;
-            root = (Parent) fxmlLoader.load();
+            Parent root;
+            root = fxmlLoader.load();
             SkillDetailsController controller = fxmlLoader.getController();
             controller.setModel(this.model);
             controller.init(cmbSkillCategories.getValue().getItemText(), playerID);
@@ -96,7 +96,7 @@ public class SkillsMenuController {
             stage.getIcons().add(icon);
             stage.showAndWait();
         } catch (IOException e) {
-            e.printStackTrace();
+            SimpleAlerts.exceptionAlert("Unexpected error occurred when displaying skill details for that skill", e).showAndWait();
         }
     }
 
@@ -123,7 +123,7 @@ public class SkillsMenuController {
             try {
                 stage.setTitle("Notes for - " + Search.getPlayerFromID(playerID).getFullName() + " - " + cmbSkillCategories.getValue().getItemText());
             } catch (PlayerNotFoundException e) {
-                SimpleAlerts.exceptionAlert("Unexpected error has occurred", e);
+                SimpleAlerts.exceptionAlert("Unexpected error occurred while updating page title", e);
             }
             stage.setScene(new Scene(root));
             stage.setResizable(false);
@@ -132,7 +132,7 @@ public class SkillsMenuController {
             stage.getIcons().add(icon);
             stage.showAndWait();
         } catch (IOException e) {
-            e.printStackTrace();
+            SimpleAlerts.exceptionAlert("Unexpected error occurred while displaying notes for that skill", e).showAndWait();
         }
     }
 }
