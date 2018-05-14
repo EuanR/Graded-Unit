@@ -88,7 +88,7 @@ public class HomeController {
             if (squad.getSquadName().toLowerCase().equals(squadName.toLowerCase())) {
                 for (int playerID : squad.getPlayers()) {
                     try {
-                        Player tempPlayer = Search.getPlayerFromID(playerID + 55);
+                        Player tempPlayer = Search.getPlayerFromID(playerID);
                         ComboBoxItem comboBoxItem = new ComboBoxItem(tempPlayer.getFullName(), tempPlayer.getUID());
                         cmbPlayers.getItems().add(comboBoxItem);
                     } catch (PlayerNotFoundException e) {
