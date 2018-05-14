@@ -28,7 +28,7 @@ public class LoginController {
     /**
      * The model
      */
-    Model model;
+    private Model model;
     /**
      * The text field for the user id
      */
@@ -60,7 +60,7 @@ public class LoginController {
         if (validateLogin(txtUserID.getText(), txtPassword.getText())) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/Home.fxml"));
-                Parent root = (Parent) fxmlLoader.load();
+                Parent root = fxmlLoader.load();
                 HomeController controller = fxmlLoader.getController();
                 controller.setModel(this.model);
                 if (!controller.init(Integer.parseInt(txtUserID.getText()))) {
@@ -83,7 +83,6 @@ public class LoginController {
             ((Node) (event.getSource())).getScene().getWindow().hide();
         } else {
             SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "Invalid login credentials", "You have provided invalid login credentials. Either your user id or password is incorrect.").showAndWait();
-            return;
         }
     }
 

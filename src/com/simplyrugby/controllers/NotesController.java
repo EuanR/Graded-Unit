@@ -22,7 +22,7 @@ public class NotesController {
     /**
      * The model
      */
-    Model model;
+    private Model model;
     /**
      * The player id of the player who's skills are being displayed
      */
@@ -71,7 +71,7 @@ public class NotesController {
      */
     @FXML
     private void btnAddNotesClickHandler() {
-        Optional<String> tempSquadName = null;
+        Optional<String> tempSquadName = Optional.empty();
         String notes;
         try {
             tempSquadName = InputDialog.textInput("Please enter the note you wish to add", "Please enter the note you wish to add for " + Search.getPlayerFromID(playerID).getFullName() + " regarding " + currentSkillCategory.toLowerCase() + " skill", false, false).showAndWait();

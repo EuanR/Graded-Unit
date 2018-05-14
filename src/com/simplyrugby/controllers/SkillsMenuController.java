@@ -28,7 +28,7 @@ public class SkillsMenuController {
     /**
      * The model
      */
-    Model model;
+    private Model model;
 
     /**
      * Combo box that stores the skill categories
@@ -52,7 +52,7 @@ public class SkillsMenuController {
     /**
      * Initialising the view and adding the players skill categories to the combo box
      *
-     * @param playerID  Player id of the player who's skills are being displayed
+     * @param playerID Player id of the player who's skills are being displayed
      */
     @FXML
     public void init(int playerID) {
@@ -80,8 +80,8 @@ public class SkillsMenuController {
         }
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/SkillDetails.fxml"));
-            Parent root = null;
-            root = (Parent) fxmlLoader.load();
+            Parent root;
+            root = fxmlLoader.load();
             SkillDetailsController controller = fxmlLoader.getController();
             controller.setModel(this.model);
             controller.init(cmbSkillCategories.getValue().getItemText(), playerID);

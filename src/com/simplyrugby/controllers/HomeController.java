@@ -33,7 +33,7 @@ public class HomeController {
     /**
      * The model
      */
-    Model model;
+    private Model model;
     /**
      * The name of the squad being managed
      */
@@ -104,7 +104,7 @@ public class HomeController {
     /**
      * Updates the title of the scene to contain the current squad name
      */
-    public void updateSceneTitle() {
+    protected void updateSceneTitle() {
         Stage tempStage = (Stage) pane.getScene().getWindow();
         tempStage.setTitle("Simply Rugby Coaching Home - " + currentSquadName);
     }
@@ -123,7 +123,7 @@ public class HomeController {
         }
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/SkillsMenu.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
+            Parent root = fxmlLoader.load();
             SkillsMenuController controller = fxmlLoader.getController();
             controller.setModel(this.model);
             controller.init(cmbPlayers.getValue().getPlayerID());

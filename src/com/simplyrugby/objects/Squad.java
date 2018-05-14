@@ -43,6 +43,7 @@ public class Squad {
 
     /**
      * Squad name setter
+     *
      * @param squadName Name of the squad
      */
     public void setSquadName(String squadName) {
@@ -51,6 +52,7 @@ public class Squad {
 
     /**
      * Adds a new player to the squad
+     *
      * @param playerID The id of the player being added
      */
     public void addPlayer(int playerID) {
@@ -59,6 +61,7 @@ public class Squad {
 
     /**
      * Gets a list of the player ids of the players in the squad
+     *
      * @return List of player ids
      */
     public ArrayList<Integer> getPlayers() {
@@ -67,6 +70,7 @@ public class Squad {
 
     /**
      * Coach id getter
+     *
      * @return Coach id
      */
     public int getCoachID() {
@@ -75,6 +79,7 @@ public class Squad {
 
     /**
      * Coach id setter
+     *
      * @param coachID Coach id
      */
     public void setCoachID(int coachID) {

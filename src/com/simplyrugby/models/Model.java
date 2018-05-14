@@ -43,7 +43,7 @@ public class Model {
     /**
      * Generates default system data
      */
-    public void rebuildSystemData() {
+    private void rebuildSystemData() {
         ArrayList<String> healthIssues = new ArrayList<String>();
         healthIssues.add("Hayfever");
         players.add(new SeniorPlayer(
@@ -260,7 +260,7 @@ public class Model {
     /**
      * Imports system data from existing Json files using Gson
      */
-    public void importSystemData() {
+    private void importSystemData() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Type playerType = new TypeToken<ArrayList<Player>>() {
         }.getType();
@@ -323,7 +323,7 @@ public class Model {
      *
      * @return Returns true if there is data in local files or false if there is none
      */
-    public boolean checkForSystemData() {
+    private boolean checkForSystemData() {
         File playersData = new File("data/players.json");
         File squadsData = new File("data/squads.json");
         File coachData = new File("data/coaches.json");
@@ -336,6 +336,7 @@ public class Model {
 
     /**
      * Returns all players in the system
+     *
      * @return Arraylist of all of the players in the system
      */
     public ArrayList<Player> getPlayers() {
@@ -344,6 +345,7 @@ public class Model {
 
     /**
      * Returns all squads in the system
+     *
      * @return Arraylist of all of the squads in the system
      */
     public ArrayList<Squad> getSquads() {
@@ -352,6 +354,7 @@ public class Model {
 
     /**
      * Returns all players in the system
+     *
      * @return Arraylist of all of the squads in the system
      */
     public ArrayList<Member> getCoaches() {

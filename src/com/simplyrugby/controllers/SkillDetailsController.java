@@ -25,7 +25,7 @@ public class SkillDetailsController {
     /**
      * The model
      */
-    Model model;
+    private Model model;
     /**
      * The skill category being displayed
      */
