@@ -2,13 +2,15 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane prefHeight="53.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/9.0.1"
+<AnchorPane prefHeight="53.0" prefWidth="449.0" xmlns="http://javafx.com/javafx/8.0.121"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.simplyrugby.controllers.SkillsMenuController">
     <children>
         <Button fx:id="btnViewDetails" defaultButton="true" layoutX="248.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnViewDetailsClickHandler" text="View Details" />
         <ComboBox fx:id="cmbSkillCategories" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="225.0" promptText="Skill categories" />
         <Button fx:id="btnViewNotes" layoutX="345.0" layoutY="14.0" mnemonicParsing="false"
                 onAction="#btnViewNotesClickHandler" text="View Notes"/>
+        <Hyperlink layoutX="428.0" layoutY="3.0" onAction="#openUserDocs" text="?"/>
     </children>
 </AnchorPane>

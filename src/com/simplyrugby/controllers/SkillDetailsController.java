@@ -7,6 +7,7 @@ import com.simplyrugby.objects.Skill;
 import com.simplyrugby.objects.SkillCategory;
 import com.simplyrugby.utils.Search;
 import com.simplyrugby.utils.SimpleAlerts;
+import com.simplyrugby.utils.UserDocs;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -165,6 +166,14 @@ public class SkillDetailsController {
                 }
             }
         }
+    }
+
+    /**
+     * Opens the user docs upon the user clicking the hyperlink
+     */
+    @FXML
+    private void openUserDocs() {
+        UserDocs.openUserDocs();
     }
 
 }

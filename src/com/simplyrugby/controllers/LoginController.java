@@ -4,6 +4,7 @@ import com.simplyrugby.models.Model;
 import com.simplyrugby.objects.Member;
 import com.simplyrugby.utils.Hash;
 import com.simplyrugby.utils.SimpleAlerts;
+import com.simplyrugby.utils.UserDocs;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -107,5 +108,13 @@ public class LoginController {
             }
         }
         return false;
+    }
+
+    /**
+     * Opens the user docs upon the user clicking the hyperlink
+     */
+    @FXML
+    private void openUserDocs() {
+        UserDocs.openUserDocs();
     }
 }

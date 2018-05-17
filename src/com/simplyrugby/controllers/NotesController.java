@@ -7,6 +7,7 @@ import com.simplyrugby.objects.SkillCategory;
 import com.simplyrugby.utils.InputDialog;
 import com.simplyrugby.utils.Search;
 import com.simplyrugby.utils.SimpleAlerts;
+import com.simplyrugby.utils.UserDocs;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -185,5 +186,13 @@ public class NotesController {
             }
         }
         return false;
+    }
+
+    /**
+     * Opens the user docs upon the user clicking the hyperlink
+     */
+    @FXML
+    private void openUserDocs() {
+        UserDocs.openUserDocs();
     }
 }
