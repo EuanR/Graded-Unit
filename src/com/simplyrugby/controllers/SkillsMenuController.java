@@ -6,6 +6,7 @@ import com.simplyrugby.objects.ComboBoxItem;
 import com.simplyrugby.objects.SkillCategory;
 import com.simplyrugby.utils.Search;
 import com.simplyrugby.utils.SimpleAlerts;
+import com.simplyrugby.utils.UserDocs;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -134,5 +135,13 @@ public class SkillsMenuController {
         } catch (IOException e) {
             SimpleAlerts.exceptionAlert("Unexpected error occurred while displaying notes for that skill", e).showAndWait();
         }
+    }
+
+    /**
+     * Opens the user docs upon the user clicking the hyperlink
+     */
+    @FXML
+    private void openUserDocs() {
+        UserDocs.openUserDocs();
     }
 }

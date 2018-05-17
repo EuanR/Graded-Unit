@@ -8,6 +8,7 @@ import com.simplyrugby.objects.Squad;
 import com.simplyrugby.utils.InputDialog;
 import com.simplyrugby.utils.Search;
 import com.simplyrugby.utils.SimpleAlerts;
+import com.simplyrugby.utils.UserDocs;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -149,6 +150,15 @@ public class HomeController {
      */
     public void setModel(Model model) {
         this.model = model;
+    }
+
+
+    /**
+     * Opens the user docs upon the user clicking the hyperlink
+     */
+    @FXML
+    private void openUserDocs() {
+        UserDocs.openUserDocs();
     }
 
 }
