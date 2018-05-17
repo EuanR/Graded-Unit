@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 import java.io.File;
 
 /**
+ * Initial app entry point
+ *
  * @author Euan
  * Project developer docs can be found at https://dev.docs.gradedunit.euanriggans.com
  * Project user docs can be found at https://user.docs.gradedunit.euanriggans.com

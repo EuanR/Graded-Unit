@@ -3,6 +3,8 @@ package com.simplyrugby.utils;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
+ * Hash utility class for hashing passwords
+ *
  * @author Euan
  */
 public final class Hash {

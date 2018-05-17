@@ -3,6 +3,8 @@ package com.simplyrugby.objects;
 import java.util.ArrayList;
 
 /**
+ * Skill Category class
+ *
  * @author Euan
  */
 public class SkillCategory {

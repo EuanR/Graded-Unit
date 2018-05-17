@@ -1,6 +1,8 @@
 package com.simplyrugby.objects;
 
 /**
+ * Skill class
+ *
  * @author Euan
  */
 public class Skill {

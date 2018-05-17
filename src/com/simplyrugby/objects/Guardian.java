@@ -1,6 +1,8 @@
 package com.simplyrugby.objects;
 
 /**
+ * Guardian class
+ *
  * @author Euan
  */
 public class Guardian {

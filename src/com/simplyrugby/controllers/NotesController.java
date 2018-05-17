@@ -16,6 +16,8 @@ import javafx.scene.control.ListView;
 import java.util.Optional;
 
 /**
+ *  Controller for the notes view
+ *
  * @author Euan
  */
 public class NotesController {

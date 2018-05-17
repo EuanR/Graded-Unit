@@ -1,6 +1,8 @@
 package com.simplyrugby.utils;
 
 /**
+ * Debug utility class
+ *
  * @author Euan
  */
 public final class Debug {

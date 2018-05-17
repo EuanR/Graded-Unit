@@ -4,6 +4,8 @@ import java.awt.*;
 import java.net.URL;
 
 /**
+ * UserDocs utility class
+ *
  * @author Euan
  */
 public final class UserDocs {

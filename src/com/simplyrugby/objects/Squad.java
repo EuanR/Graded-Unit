@@ -3,6 +3,8 @@ package com.simplyrugby.objects;
 import java.util.ArrayList;
 
 /**
+ * Squad class
+ *
  * @author Euan
  */
 public class Squad {

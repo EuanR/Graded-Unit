@@ -1,6 +1,8 @@
 package com.simplyrugby.exceptions;
 
 /**
+ * Custom exception for when a player is not found
+ *
  * @author Euan
  */
 public class PlayerNotFoundException extends Exception {

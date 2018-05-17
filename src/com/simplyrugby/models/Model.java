@@ -11,6 +11,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 /**
+ * Model for the entire program - stores all of the data for the application
+ *
  * @author Euan
  */
 public class Model {

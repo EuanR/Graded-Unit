@@ -22,6 +22,8 @@ import java.io.File;
 import java.io.IOException;
 
 /**
+ * Controller for the login view
+ *
  * @author Euan
  */
 public class LoginController {

@@ -3,6 +3,8 @@ package com.simplyrugby.objects;
 import java.util.ArrayList;
 
 /**
+ * Junior player class
+ *
  * @author Euan
  */
 public class JuniorPlayer extends Player {

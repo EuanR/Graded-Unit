@@ -7,6 +7,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 
 /**
+ * InputDialog utility class to provide easy input dialogs
+ *
  * @author Euan
  */
 public final class InputDialog {

@@ -16,6 +16,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 /**
+ * Search utility class to search through objects for data
+ *
  * @author Euan
  */
 public final class Search {

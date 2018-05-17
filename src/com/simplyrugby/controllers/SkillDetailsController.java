@@ -20,6 +20,8 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 
 /**
+ *  Controller for the skill details view
+ *
  * @author Euan
  */
 public class SkillDetailsController {

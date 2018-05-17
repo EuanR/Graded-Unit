@@ -3,6 +3,8 @@ package com.simplyrugby.objects;
 import java.util.ArrayList;
 
 /**
+ * Senior player class
+ *
  * @author Euan
  */
 public class SeniorPlayer extends Player {

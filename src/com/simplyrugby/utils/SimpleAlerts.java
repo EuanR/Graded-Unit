@@ -7,6 +7,8 @@ import javafx.scene.layout.Priority;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 /**
+ * SimpleAlerts utility class to display different types of alert easily
+ *
  * @author Euan Riggans
  */
 public final class SimpleAlerts {

@@ -27,6 +27,8 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 /**
+ * Controller for the home view
+ *
  * @author Euan
  */
 public class HomeController {
