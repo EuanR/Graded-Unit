@@ -13,7 +13,8 @@ import java.io.File;
 
 /**
  * @author Euan
- * Project docs can be found at https://dev.docs.gradedunit.euanriggans.com
+ * Project developer docs can be found at https://dev.docs.gradedunit.euanriggans.com
+ * Project user docs can be found at https://user.docs.gradedunit.euanriggans.com
  */
 public class Main extends Application {
 
