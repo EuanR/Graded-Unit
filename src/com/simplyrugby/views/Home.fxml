@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane fx:id="pane" prefHeight="77.0" prefWidth="361.0" xmlns="http://javafx.com/javafx/9.0.1"
+<AnchorPane fx:id="pane" prefHeight="77.0" prefWidth="361.0" xmlns="http://javafx.com/javafx/8.0.121"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.simplyrugby.controllers.HomeController">
     <children>
         <Label fx:id="lblSelectPlayerFixed" layoutX="14.0" layoutY="14.0"
@@ -14,6 +14,6 @@
                   promptText="Squad players"/>
         <Button fx:id="btnViewSkills" defaultButton="true" layoutX="223.0" layoutY="38.0" mnemonicParsing="false"
                 onAction="#btnViewSkillsClickHandler" text="View Player Skill Data"/>
-        <Hyperlink layoutX="340.0" layoutY="3.0" onAction="#openUserDocs" text="?"/>
+        <Hyperlink layoutX="340.0" layoutY="11.0" onAction="#openUserDocs" text="?"/>
     </children>
 </AnchorPane>

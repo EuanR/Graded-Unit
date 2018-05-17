@@ -11,6 +11,6 @@
         <ComboBox fx:id="cmbSkillCategories" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="225.0" promptText="Skill categories" />
         <Button fx:id="btnViewNotes" layoutX="345.0" layoutY="14.0" mnemonicParsing="false"
                 onAction="#btnViewNotesClickHandler" text="View Notes"/>
-        <Hyperlink layoutX="428.0" layoutY="3.0" onAction="#openUserDocs" text="?"/>
+        <Hyperlink layoutX="428.0" layoutY="15.0" onAction="#openUserDocs" text="?"/>
     </children>
 </AnchorPane>
