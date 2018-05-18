@@ -2,10 +2,12 @@ package com.simplyrugby;
 
 import com.simplyrugby.controllers.LoginController;
 import com.simplyrugby.models.Model;
+import com.simplyrugby.utils.SimpleAlerts;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -43,6 +45,7 @@ public class Main extends Application {
         File tempIconLocation = new File("resources/sru_logo.png");
         Image icon = new Image("file:\\" + tempIconLocation.getCanonicalPath());
         primaryStage.getIcons().add(icon);
+        SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "DEBUG", "Debug login data: ID: 6 Password: password").showAndWait();
         primaryStage.show();
     }
 }
