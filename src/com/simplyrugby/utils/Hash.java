@@ -10,7 +10,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 public final class Hash {
 
     /**
-     * Hashes a given string using the SHA512 secure hash algorithm
+     * Hashes a given string using the SHA512 algorithm
      *
      * <pre>
      *     {@code
@@ -28,7 +28,7 @@ public final class Hash {
     }
 
     /**
-     * Hashes a given string using the SHA384 secure hash algorithm
+     * Hashes a given string using the SHA384 algorithm
      *
      * <pre>
      *     {@code
@@ -46,7 +46,7 @@ public final class Hash {
     }
 
     /**
-     * Hashes a given string using the SHA256 secure hash algorithm
+     * Hashes a given string using the SHA256 algorithm
      *
      * <pre>
      *     {@code
@@ -64,7 +64,7 @@ public final class Hash {
     }
 
     /**
-     * Hashes a given string using the MD5 secure hash algorithm
+     * Hashes a given string using the MD5 algorithm
      *
      * <pre>
      *     {@code
