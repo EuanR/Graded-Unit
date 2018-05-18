@@ -20,9 +20,11 @@ public final class UserDocs {
      */
     public static void openUserDocs() {
         try {
-            Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
-            URL userDocsLocation = new URL("https://user.docs.gradedunit.euanriggans.com");
-            desktop.browse(userDocsLocation.toURI());
+            if(Desktop.isDesktopSupported()) {
+                Desktop desktop = Desktop.getDesktop();
+                URL userDocsLocation = new URL("https://user.docs.gradedunit.euanriggans.com");
+                desktop.browse(userDocsLocation.toURI());
+            }
         } catch (Exception e) {
             SimpleAlerts.exceptionAlert("Unexpected error occured when attempting to open the userdocs", e);
         }
