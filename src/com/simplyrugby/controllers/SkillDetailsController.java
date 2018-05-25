@@ -99,9 +99,9 @@ public class SkillDetailsController {
                 }
                 try {
                     int tempNewRating = Integer.parseInt(cellEditEvent.getNewValue().toString());
-                    if (tempNewRating > 10 || tempNewRating < 0) {
+                    if (tempNewRating > 5 || tempNewRating < 0) {
                         tblSkillData.refresh();
-                        SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "Invalid rating", "A skill rating must be between 0 and 10").showAndWait();
+                        SimpleAlerts.simpleAlert(Alert.AlertType.INFORMATION, "Invalid rating", "A skill rating must be between 0 and 5").showAndWait();
                         return;
                     }
                 } catch (Exception e) {
