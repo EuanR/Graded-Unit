@@ -18,7 +18,7 @@ import java.util.ArrayList;
 /**
  * Search utility class to search through objects for data
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public final class Search {
 

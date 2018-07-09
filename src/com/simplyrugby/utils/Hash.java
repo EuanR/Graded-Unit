@@ -5,7 +5,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 /**
  * Hash utility class for hashing passwords
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public final class Hash {
 

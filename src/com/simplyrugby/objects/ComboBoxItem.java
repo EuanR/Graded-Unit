@@ -3,7 +3,7 @@ package com.simplyrugby.objects;
 /**
  * Contains data for a combobox item with hidden data
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public class ComboBoxItem {
 

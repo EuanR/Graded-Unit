@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 /**
  * Member class
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public class Member {
     /**

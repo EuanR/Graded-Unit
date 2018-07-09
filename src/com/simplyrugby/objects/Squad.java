@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Squad class
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public class Squad {
 

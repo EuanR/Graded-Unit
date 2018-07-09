@@ -6,7 +6,7 @@ import java.net.URL;
 /**
  * UserDocs utility class
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public final class UserDocs {
 

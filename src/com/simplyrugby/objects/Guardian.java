@@ -3,7 +3,7 @@ package com.simplyrugby.objects;
 /**
  * Guardian class
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public class Guardian {
 

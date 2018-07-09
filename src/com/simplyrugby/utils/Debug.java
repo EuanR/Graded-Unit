@@ -3,7 +3,7 @@ package com.simplyrugby.utils;
 /**
  * Debug utility class
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public final class Debug {
 

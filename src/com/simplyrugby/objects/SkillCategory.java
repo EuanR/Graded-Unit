@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Skill Category class
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public class SkillCategory {
 

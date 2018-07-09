@@ -29,7 +29,7 @@ import java.util.Optional;
 /**
  * Controller for the home view
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public class HomeController {
 

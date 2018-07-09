@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Senior player class
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public class SeniorPlayer extends Player {
 

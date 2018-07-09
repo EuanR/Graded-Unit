@@ -3,7 +3,7 @@ package com.simplyrugby.objects;
 /**
  * Skill class
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public class Skill {
 

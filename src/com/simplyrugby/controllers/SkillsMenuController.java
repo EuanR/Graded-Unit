@@ -24,7 +24,7 @@ import java.io.IOException;
 /**
  *  Controller for the skills menu view
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public class SkillsMenuController {
 

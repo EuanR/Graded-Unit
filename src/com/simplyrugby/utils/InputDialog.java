@@ -9,7 +9,7 @@ import javafx.scene.control.TextInputDialog;
 /**
  * InputDialog utility class to provide easy input dialogs
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public final class InputDialog {
 

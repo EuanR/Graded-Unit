@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Junior player class
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public class JuniorPlayer extends Player {
 

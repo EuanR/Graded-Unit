@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  *  Controller for the notes view
  *
- * @author Euan
+ * @author Euan Riggans
  */
 public class NotesController {
 
